@@ -1,0 +1,91 @@
+/* tutor-register.component.css */
+
+/* Importando a fonte Inter */
+body {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  .tutor-register {
+    max-width: 701px;
+    margin: 50px auto; /* Adiciona margem superior e inferior */
+    padding: 20px;
+    border: 1px solid black;
+    font-weight: bold; /* Deixa o texto em negrito */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centraliza verticalmente */
+  }
+  
+  .tutor-register form {
+    flex-grow: 1; /* Ocupa todo o espaço disponível dentro do container */
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 10px; /* Espaçamento entre os campos */
+  }
+  
+  .form-group {
+    flex: 1; /* Para que cada grupo de campos ocupe o mesmo espaço */
+  }
+  
+  .form-outline {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+  .form-outline input,
+  .form-outline textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black; /* Adiciona uma borda preta */
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+  
+  .form-outline label {
+    position: absolute;
+    top: -20px; /* Move o rótulo para cima */
+    left: 10px;
+    color: black; /* Define a cor do rótulo como preto */
+    font-weight: bold; /* Deixa o rótulo em negrito */
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3); /* Adiciona um leve sombreamento para destacar o rótulo */
+    font-weight: bold; /* Deixa o texto em negrito */
+    transition: all 0.3s ease;
+  }
+  
+  .form-outline input:focus + .form-label,
+  .form-outline input:not(:placeholder-shown) + .form-label,
+  .form-outline textarea:focus + .form-label,
+  .form-outline textarea:not(:placeholder-shown) + .form-label {
+    top: -35px; /* Move o rótulo ainda mais para cima quando o input está focado ou preenchido */
+    font-size: 12px;
+    color: black;
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+  
+  .btn-container {
+    margin-top: auto; /* Faz com que o container de botões se alinhe na parte inferior do formulário */
+    
+    justify-content: flex-start; /* Alinha os botões à esquerda */
+    text-align: center;
+  }
+  
+  .btn {
+    margin-right: 20px; /* Adiciona espaçamento entre os botões */
+    background-color: black; /* Define a cor de fundo dos botões como preto */
+    color: white; /* Define a cor do texto dos botões como branco */
+    text-align: center;
+  }
+  
+  /* Estilo para o título fora do contêiner */
+  h1 {
+    font-size: 51px; /* Aumenta o tamanho do texto */
+    color: black; /* Define a cor do texto como preto */
+    margin-bottom: 30px; /* Aumenta a margem inferior */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+  
