@@ -8,7 +8,7 @@
             <th>Raca</th>
             <th>Ações</th>
         </tr>
-        for(let cachorro of cachorros; let i = index){
+        @for(cachorro of cachorros; track cachorro.id){
             <tr>
                 <td>{{ cachorro.nome }}</td>
                 <td>{{ cachorro.idadeAproximada }}</td>
@@ -19,6 +19,9 @@
                     <button class="btn btn-danger">Excluir</button>
                 </td>
             </tr>
+        }
+        @empty{
+            <p>{{ mensagemDeErro }}</p>
         }
 
     </table>
