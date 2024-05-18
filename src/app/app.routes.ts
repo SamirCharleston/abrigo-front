@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { CachorrolistComponent } from './components/cachorro/cachorrolist/cachorrolist.component';
+import { LayoutprincipalComponent } from './layouts/layoutprincipal/layoutprincipal/layoutprincipal.component';
 
 export const routes: Routes = [
     { 
-        path: 'cachorro', component: CachorrolistComponent, pathMatch: 'full'
-
+        
         //Samir insira suas rotas abaixo dessa linha
+        path: '', component: LayoutprincipalComponent, pathMatch: 'full'
 
         //Samir insira suas rotas acima dessa linha
 
