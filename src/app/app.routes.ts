@@ -15,6 +15,10 @@ import { LoginComponent } from './layouts/login/login/login.component';
 
 
 //Joao insira seus imports abaixo dessa linha
+import { TutordatailsComponent } from './components/tutor/tutordatails/tutordatails.component';
+import { TutorlistComponent } from './components/tutor/tutorlist/tutorlist.component';
+import { TutorregisterComponent } from './components/tutor/tutorregister/tutorregister.component';
+import { TutorupdateComponent } from './components/tutor/tutorupdate/tutorupdate.component';
 
 //Joao insira seus imports acima dessa linha
 
@@ -37,7 +41,11 @@ export const routes: Routes = [
     //Luan insira suas rotas acima dessa linha
 
 
-    //Joao insira suas rotas abaixo dessa linha
+    //Joao insira suas rotas abaixo dessa linha 
+    { path: 'tutors', component: TutorlistComponent },
+    { path: 'tutors/new', component: TutorregisterComponent },
+    { path: 'tutors/edit/id', component: TutorupdateComponent },
+    { path: 'tutors/id', component: TutordatailsComponent }
 
     //Joao insira suas rotas acima dessa linha
 
