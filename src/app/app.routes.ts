@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { LayoutprincipalComponent } from './layouts/layoutprincipal/layoutprincipal/layoutprincipal.component';
+import { LoginComponent } from './layouts/login/login/login.component';
 
 export const routes: Routes = [
     { 
         
         //Samir insira suas rotas abaixo dessa linha
-        path: '', component: LayoutprincipalComponent, pathMatch: 'full'
+        path: '', component: LoginComponent, pathMatch: 'full'
 
         //Samir insira suas rotas acima dessa linha
 
