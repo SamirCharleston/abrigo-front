@@ -1,12 +1,15 @@
 <div class="container">
-    <div class="row">
+    <div class="row h-100 d-flex align-items-center">
       <div class="col-lg-4"></div>
   
       <div class="col-lg-4 centralizar topo">
+        <h3 class="text-center font-style">Gestor Pet</h3>
+        <div>
+          <img alt="logo" src="../../../assets/cachorro.png" width="100%" />
+        </div>
         <div class="card">
           <div class="card-body">
-            <h3>Autentique-se:</h3>
-            <br>
+            <h4>Entrar</h4>
             <mdb-form-control>
               <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="usuario" />
               <label mdbLabel class="form-label" for="usuario">Usuário</label>
@@ -17,7 +20,8 @@
               <label mdbLabel class="form-label" for="senha">Senha:</label>
             </mdb-form-control>
             <br />
-            <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="logar()">
+            <!-- Abaixo ficara um botao preto quadrado-->
+            <button type="button" class="btn btn-primary btn-block bg-dark" mdbRipple (click)="logar()">
               Acessar
             </button>
           </div>
