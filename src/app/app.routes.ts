@@ -24,7 +24,6 @@ export const routes: Routes = [
     //Samir insira suas rotas abaixo dessa linha
     { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent},
-    { path: 'home', }
     //Samir insira suas rotas acima dessa linha
 
 
