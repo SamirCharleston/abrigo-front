@@ -1,6 +1,7 @@
 //Samir insira seus imports abaixo dessa linha
 import { Routes } from '@angular/router';
 import { LoginComponent } from './layouts/login/login/login.component';
+
 //Samir insira seus imports acima dessa linha
 
 
@@ -10,6 +11,10 @@ import { LoginComponent } from './layouts/login/login/login.component';
 
 
 //Luan insira seus imports abaixo dessa linha
+import { CachorrodetailsComponent } from './components/cachorro/cachorrodetails/cachorrodetails.component';
+import { CachorrolistComponent } from './components/cachorro/cachorrolist/cachorrolist.component';
+import { CachorroregisterComponent } from './components/cachorro/cachorroregister/cachorroregister.component';
+import { CachorroupdateComponent } from './components/cachorro/cachorroupdate/cachorroupdate.component';
 
 //Luan insira seus imports acima dessa linha
 
@@ -37,6 +42,10 @@ export const routes: Routes = [
 
 
     //Luan insira suas rotas abaixo dessa linha
+    { path: 'cachorro', component: CachorrolistComponent},
+    { path: 'cachorro/register', component: CachorroregisterComponent},
+    { path: 'cachorro/details', component: CachorrodetailsComponent},
+    { path: 'cachorro/update', component: CachorroupdateComponent},
 
     //Luan insira suas rotas acima dessa linha
 
