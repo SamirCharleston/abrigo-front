@@ -3,6 +3,10 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { UsuarioService } from '../../../service/usuario/usuario.service';
+import { Usuario } from '../../../models/usuario/usuario';
+import { Resposta } from '../../../models/resposta/resposta';
+import { UsuarioAutenticado } from '../../../models/usuario/usuario-autenticado';
 
 @Component({
   selector: 'app-login',
@@ -12,15 +16,40 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent {
-  usuario!: string;
+  nome!: string;
   senha!: string;
+
+  usuario: Usuario = new Usuario();
+
+  usuarioService = inject(UsuarioService);
 
   router = inject(Router);
 
   logar() {
-    if (this.usuario == 'admin' && this.senha == 'admin') {
-      this.router.navigate(['/home']);
-    } else
-      alert('Usuário ou senha estão incorretos!');
+    //Faz a validacao dos campos para verificar se foram todos preenchidos
+    if(this.nome == '' || this.senha == '') {
+      alert('Preencha todos os campos!');
+      return;
+    }
+
+    //Passa o valor dos campos para o usuario que sera autenticado
+    this.usuario.nome = this.nome;
+    this.usuario.senha = this.senha;
+
+    //Limpa os campos para se caso voltar na pagina os campos ficam limpos
+    this.nome = '';
+    this.senha = '';
+
+    //Envia o usuario para o backend para autenticacao, caso for bem sucedido
+    //retorna um codigo de autenticacao
+    this.usuarioService.autenticar(this.usuario).subscribe({
+      next: (response: Resposta<UsuarioAutenticado>) => {
+        alert('Usário autenticado com sucesso! ' + response.objeto.codigo);
+        this.router.navigate(['/home']);
+      },
+      error: (error: Resposta<UsuarioAutenticado>) => {
+        alert('Houve um problema ao autenticar!');
+      }
+    })
   }
 }

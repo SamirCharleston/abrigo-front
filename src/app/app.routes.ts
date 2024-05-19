@@ -19,6 +19,7 @@ import { TutordatailsComponent } from './components/tutor/tutordatails/tutordata
 import { TutorlistComponent } from './components/tutor/tutorlist/tutorlist.component';
 import { TutorregisterComponent } from './components/tutor/tutorregister/tutorregister.component';
 import { TutorupdateComponent } from './components/tutor/tutorupdate/tutorupdate.component';
+import { RegistrarComponent } from './layouts/login/registrar/registrar.component';
 
 //Joao insira seus imports acima dessa linha
 
@@ -28,6 +29,7 @@ export const routes: Routes = [
     //Samir insira suas rotas abaixo dessa linha
     { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent},
+    { path: 'registrar', component: RegistrarComponent},
     //Samir insira suas rotas acima dessa linha
 
 

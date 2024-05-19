@@ -9,7 +9,7 @@
         </div>
         <div class="card">
           <div class="card-body">
-            <h4>Entrar</h4>
+            <h4>Registrar</h4>
             <mdb-form-control>
               <input mdbInput type="text" id="usuario" class="form-control" [(ngModel)]="nome" />
               <label mdbLabel class="form-label" for="usuario">Usuário</label>
@@ -20,14 +20,19 @@
               <label mdbLabel class="form-label" for="senha">Senha:</label>
             </mdb-form-control>
             <br />
+            <mdb-form-control>
+                <input mdbInput type="password" id="confirmacao-de-senha" class="form-control" [(ngModel)]="confirmacaoDeSenha" />
+                <label mdbLabel class="form-label" for="confirmacao-de-senha">Confirme a senha:</label>
+            </mdb-form-control>
+            <br/>
             <!-- Abaixo ficara um botao preto quadrado-->
-            <button type="button" class="btn btn-primary btn-block bg-dark" mdbRipple (click)="logar()">
-              Acessar
+            <button type="button" class="btn btn-primary btn-block bg-dark" mdbRipple (click)="registrar()">
+              Registrar
             </button>
           </div>
         </div>
-        <div class="container-btn-registrar">
-          <button type="button" (click)="router.navigate(['/registrar'])" class="btn btn-primary btn-block btn-secondary btn-light" mdbRipple>Registrar-se</button>
+        <div class="container-btn-voltar">
+            <button type="button" (click)="router.navigate(['/login'])" class="btn btn-primary btn-block btn-secondary btn-light" mdbRipple>Voltar</button>
         </div>
       </div>
   
