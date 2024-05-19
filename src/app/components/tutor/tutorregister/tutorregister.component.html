@@ -1,1 +1,53 @@
-<p>tutorregister works!</p>
+<br>
+<h1>Cadastro Tutor</h1>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+
+<div class="tutor-register">
+  
+    <form (ngSubmit)="onSubmit()" class="form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="name" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="contact">Contato</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="contact" class="form-control" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-row">
+        <div class="form-group">
+          <label for="address">Endereço</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="address" class="form-control" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age">Idade</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="number" id="age" class="form-control" />
+          </div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="observation">Observações/Descrição</label>
+        <div class="form-outline" data-mdb-input-init>
+          <textarea id="observation" class="form-control" rows="4"></textarea>
+        </div>
+      </div>
+  
+      
+    </form>
+   
+  </div>]
+  <div class="btn-container">
+    <button class="btn btn-primary" type="submit">Salvar</button>
+    <button class="btn btn-danger" type="button" (click)="onCancel()">Cancelar</button>
+  </div>
+  
