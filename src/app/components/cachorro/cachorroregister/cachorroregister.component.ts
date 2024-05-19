@@ -1,6 +1,9 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, NgModule } from '@angular/core';
+import { Router, RouterModule, Routes } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
+import { CachorrolistComponent } from '../cachorrolist/cachorrolist.component';
+import { RequerimentolistComponent } from '../../requerimento/requerimentolist/requerimentolist.component';
+import { TutorlistComponent } from '../../tutor/tutorlist/tutorlist.component';
 
 @Component({
   selector: 'app-cachorroregister',
@@ -30,6 +33,12 @@ onSubmit(): void {
 }
 
 onCancel(): void {
-  this.router.navigate(['/menu']); 
+  this.router.navigate(['/menu-principal']); 
 }
 }
+
+const routes: Routes = [
+  { path: 'cachorro', component: CachorrolistComponent },
+  { path: 'requerimentolist', component: RequerimentolistComponent },
+  { path: 'tutors', component: TutorlistComponent }
+];
