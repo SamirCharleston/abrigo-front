@@ -53,6 +53,7 @@ export const routes: Routes = [
     { path: 'cachorro/register', component: CachorroregisterComponent},
     { path: 'cachorro/details', component: CachorrodetailsComponent},
     { path: 'cachorro/update', component: CachorroupdateComponent},
+    { path: 'cachorro/list', component:CachorrolistComponent},
 
     //Luan insira suas rotas acima dessa linha
 
