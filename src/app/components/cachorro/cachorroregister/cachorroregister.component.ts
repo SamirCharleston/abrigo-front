@@ -1,5 +1,5 @@
-import { Component, NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { Component } from '@angular/core';
+import { Router, Routes } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { CachorrolistComponent } from '../cachorrolist/cachorrolist.component';
 import { RequerimentolistComponent } from '../../requerimento/requerimentolist/requerimentolist.component';

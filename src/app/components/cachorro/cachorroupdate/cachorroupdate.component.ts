@@ -13,7 +13,7 @@ import { TutorlistComponent } from '../../tutor/tutorlist/tutorlist.component';
   styleUrl: './cachorroupdate.component.scss'
 })
 
-export class CachorroregisterComponent{
+export class CachorroupdateComponent{
   cachorro: any = {
     Nome:'',
     Raca:'',
