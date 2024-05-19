@@ -1,1 +1,37 @@
-<p>telaprincipal works!</p>
+<div class="container tela-principal">
+
+  <div class="row">
+
+
+    <div class="menu-lateral bg-dark col-lg-3">
+
+      <div class="menu-titulo d-flex flex-column align-items-center">
+        <h4 class="estilo-fonte-titulo">Seja bem vindo!</h4>
+        <h5 class="fonte-branca">{{primeiraLetraMaiuscula(nome)}}</h5>
+      </div>
+
+      <hr class="hr"/>
+      
+      <div class="navegacao">
+        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['home'])" routerLinkActive="active"><i class="fas fa-home mr-7"></i>Home</button>
+        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['requerimento'])" routerLinkActive="active"><i class="fas fa-paper-plane mr-7"></i>Requerimento</button>
+        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['cachorro'])" routerLinkActive="active"><i class="fas fa-paw mr-7"></i>Cachorros</button>
+        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['tutor'])" routerLinkActive="active"><i class="fas fa-person mr-7"></i>Tutor</button>
+      </div>
+      
+      <hr class="hr"/>
+
+      <div class="menu-rodape">
+        <button type="button" class="btn btn-dark btn-block hover-botao" (click)="logout()" routerLinkActive="active"><i class="fas fa-sign-out-alt mr-7"></i>Sair</button>
+      </div>
+
+    </div>
+  
+    <div class="col-lg-9">
+      <router-outlet></router-outlet>
+    </div>
+  
+
+  </div>
+
+</div>

@@ -44,7 +44,7 @@ export class LoginComponent {
     //retorna um codigo de autenticacao
     this.usuarioService.autenticar(this.usuario).subscribe({
       next: (response: Resposta<UsuarioAutenticado>) => {
-        alert('Usário autenticado com sucesso! ' + response.objeto.codigo);
+        sessionStorage.setItem('nomeDoUsuario', response.objeto.nome);
         this.router.navigate(['/home']);
       },
       error: (error: Resposta<UsuarioAutenticado>) => {

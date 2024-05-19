@@ -1,7 +1,13 @@
 //Samir insira seus imports abaixo dessa linha
 import { Routes } from '@angular/router';
 import { LoginComponent } from './layouts/login/login/login.component';
+<<<<<<< HEAD
 
+=======
+import { RegistrarComponent } from './layouts/login/registrar/registrar.component';
+import { TelaprincipalComponent } from './layouts/telaprincipal/telaprincipal.component';
+import { MenuprincipalComponent } from './components/menuprincipal/menuprincipal.component';
+>>>>>>> dd4d6edf7bc14353a48bd9ca998fdcff36fd1261
 //Samir insira seus imports acima dessa linha
 
 
@@ -24,9 +30,7 @@ import { TutordatailsComponent } from './components/tutor/tutordatails/tutordata
 import { TutorlistComponent } from './components/tutor/tutorlist/tutorlist.component';
 import { TutorregisterComponent } from './components/tutor/tutorregister/tutorregister.component';
 import { TutorupdateComponent } from './components/tutor/tutorupdate/tutorupdate.component';
-import { RegistrarComponent } from './layouts/login/registrar/registrar.component';
-import { TelaprincipalComponent } from './layouts/telaprincipal/telaprincipal.component';
-import { MenuprincipalComponent } from './components/menuprincipal/menuprincipal.component';
+
 
 //Joao insira seus imports acima dessa linha
 
@@ -38,7 +42,8 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent},
     { path: 'registrar', component: RegistrarComponent},
     { path: 'home', component: TelaprincipalComponent, children: [
-        { path: 'menu-principal', component: MenuprincipalComponent }
+        { path: '', redirectTo: 'menuprincipal', pathMatch: 'full'},
+        { path: 'menuprincipal', component: MenuprincipalComponent}
     ]},
     //Samir insira suas rotas acima dessa linha
 

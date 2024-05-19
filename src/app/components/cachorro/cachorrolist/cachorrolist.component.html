@@ -14,7 +14,6 @@
               <th>Idade</th>
               <th>Porte</th>
               <th>Raca</th>
-              <th>Ações</th>
             </tr>
             @for(cachorro of cachorros; track cachorro.id){
               <tr>
@@ -23,8 +22,8 @@
                 <td>{{ cachorro.porte }}</td>
                 <td>{{ cachorro.raca }}</td>
                 <td>
-                  <button class="btn btn-primary bg-dark me-4" type="submit">Atualizar</button>
-                  <button class="btn btn-primary bg-dark" type="button" (click)="onCancel()">Excluir</button>
+                  <button class="btn btn-primary bg-dark me-4" type="submit">Novo</button>
+                  <button class="btn btn-primary bg-dark" type="button" (click)="onCancel()">Voltar</button>
                 </td>
               </tr>
             }
