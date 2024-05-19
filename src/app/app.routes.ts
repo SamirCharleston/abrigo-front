@@ -20,6 +20,8 @@ import { TutorlistComponent } from './components/tutor/tutorlist/tutorlist.compo
 import { TutorregisterComponent } from './components/tutor/tutorregister/tutorregister.component';
 import { TutorupdateComponent } from './components/tutor/tutorupdate/tutorupdate.component';
 import { RegistrarComponent } from './layouts/login/registrar/registrar.component';
+import { TelaprincipalComponent } from './layouts/telaprincipal/telaprincipal.component';
+import { MenuprincipalComponent } from './components/menuprincipal/menuprincipal.component';
 
 //Joao insira seus imports acima dessa linha
 
@@ -30,6 +32,9 @@ export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full'},
     { path: 'login', component: LoginComponent},
     { path: 'registrar', component: RegistrarComponent},
+    { path: 'home', component: TelaprincipalComponent, children: [
+        { path: 'menu-principal', component: MenuprincipalComponent }
+    ]},
     //Samir insira suas rotas acima dessa linha
 
 
