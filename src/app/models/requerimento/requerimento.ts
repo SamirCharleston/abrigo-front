@@ -3,6 +3,7 @@ import { Tutor } from "../tutor/tutor";
 
 export class Requerimento {
     id!: number;
-    tutor!: Tutor;
-    cachorros!: Cachorro[];
+    dataDoRequerimento!: Date;
+    autorDoRequerimento!: Tutor;
+    caesRequeridos!: Cachorro[];
 }

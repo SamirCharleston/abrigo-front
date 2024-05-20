@@ -14,6 +14,13 @@ import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 export class TelaprincipalComponent {
   router = inject(Router);
   nome = sessionStorage.getItem('nomeDoUsuario');
+  iniciaAnimacao = true;
+
+  constructor() {
+    setTimeout(() => {
+      this.iniciaAnimacao = false;
+    }, 1000);
+  }
 
   logout() {
     this.nome = '';

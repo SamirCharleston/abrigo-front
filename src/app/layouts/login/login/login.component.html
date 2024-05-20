@@ -21,16 +21,21 @@
             </mdb-form-control>
             <br />
             <!-- Abaixo ficara um botao preto quadrado-->
-            <button type="button" class="btn btn-primary btn-block bg-dark" mdbRipple (click)="logar()">
+            <button type="button" class="btn btn-primary btn-block bg-dark estilo-botao-menu" mdbRipple (click)="logar()">
               Acessar
             </button>
           </div>
         </div>
-        <div class="container-btn-registrar">
-          <button type="button" (click)="router.navigate(['/registrar'])" class="btn btn-primary btn-block btn-secondary btn-light" mdbRipple>Registrar-se</button>
+        <div class="container-btn-registrar estilo-botao-menu">
+          <button type="button" (click)="router.navigate(['/registrar'])" class="btn btn-primary btn-block btn-secondary btn-light estilo-botao-menu" mdbRipple>Registrar-se</button>
         </div>
       </div>
   
       <div class="col-lg-4"></div>
+
     </div>
   </div>
+
+  @if(logado){
+    <i class="fas fa-bone estilo-osso-animado"></i>
+  }
