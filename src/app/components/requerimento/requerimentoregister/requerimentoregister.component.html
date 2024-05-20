@@ -4,7 +4,7 @@
     <div class="block d-flex justify-content-end align-items-center row">
 
 
-        <div class="col-3">Selecione o requerente: </div>
+        <div class="col-3 text-center">Selecione o requerente: </div>
 
 
         <div class="col-3 d-flex justify-start">
@@ -20,11 +20,60 @@
         </div>
 
 
-        <div class="col-3">dsaf</div>
+        <div class="col-3"></div>
 
 
-        <div class="col-3">dsafas</div>
+        <div class="col-3">
+            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" (click)="router.navigate(['tutors/new'])">
+                <i class="fas fa-user-plus mr-5"></i>Adicionar Tutor
+            </button>
+        </div>
 
 
+    </div>
+
+
+    <div class="block d-flex justify-content-end align-items-center row">
+
+        
+        <div class="container-tabela">
+
+            <div class="text-start m-2">Selecione o(s) cachorro(s): </div>
+
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col-1">
+                      Selecione
+                    </th>
+                    <th scope="col-1">Id</th>
+                    <th scope="col-3">Nome</th>
+                    <th scope="col-3">Raça</th>
+                    <th scope="col-3">Porte</th>
+                    <th scope="col-1">Idade (anos)</th>
+                  </tr>
+                </thead>
+                <tbody class="table-group-divider">
+                    @for(cachorro of cachorros; track cachorro.id){
+                    <tr>
+                      <td class="col-1">
+                        <div class="form-check d-flex justify-content-center">
+                          <input placeholder="cachorro-selecionado" class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                        </div>
+                      </td>
+                      <td class="col-1">{{ cachorro.id }}</td>
+                      <td class="col-3">{{ cachorro.nome }}</td>
+                      <td class="col-3">{{ cachorro.raca }}</td>
+                      <td class="col-3">{{ cachorro.porte }}</td>
+                      <td class="col-1">{{ cachorro.idadeAproximada }}</td>
+                    </tr>
+                    } @empty{
+                        <tr>
+                            <td colspan="6" class="text-center estilo-texto-nao-encontrado">Nenhum cachorro encontrado :/</td>
+                        </tr>
+                    }
+                </tbody>
+              </table>
+        </div>
     </div>
 </div>
