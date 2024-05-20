@@ -1,5 +1,5 @@
-<div class="h-100">
-    <h3 class="text-center ma-10">Requerimentos</h3>
+<div class="container-lista-requerimentos">
+    <h3 class="text-center ma-10 m-5">Requerimentos</h3>
     <!-- <table class="w-100">
         <thead>
             <tr class="row">
@@ -35,7 +35,7 @@
         <div class="col-3">Contato</div>
         <div class="col-2">Data</div>
         <div class="col-3">
-            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" >Novo Requerimento</button>
+            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" (click)="router.navigate(['home/requerimentos/novo'])">Novo Requerimento</button>
         </div>
     </div>
     <mdb-accordion>

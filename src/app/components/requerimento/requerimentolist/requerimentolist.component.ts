@@ -3,6 +3,7 @@ import { Requerimento } from '../../../models/requerimento/requerimento';
 import { RequerimentoService } from '../../../service/requerimento/requerimento.service';
 import { Resposta } from '../../../models/resposta/resposta';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-requerimentolist',
@@ -12,6 +13,7 @@ import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
   styleUrl: './requerimentolist.component.scss'
 })
 export class RequerimentolistComponent {
+  router = inject(Router);
   requerimentoService = inject(RequerimentoService);
   requerimentos!: Requerimento[];
 
