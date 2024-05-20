@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { state } from '@angular/animations';
 
 @Component({
   selector: 'app-tutorupdate',
@@ -11,32 +12,35 @@ import { ActivatedRoute } from '@angular/router';
   imports: [CommonModule, FormsModule, MdbFormsModule],
   templateUrl: './tutorupdate.component.html',
   styleUrls: ['./tutorupdate.component.scss'],
-  template: `
-  <form>
-    <label for="testNome">Nome</label>
-    <input type="text" id="testNome" class="form-control" name="testNome" [(ngModel)]="nome" placeholder="Digite seu nome" />
-  </form>
-`
+  
 })
-export class TutorupdateComponent implements OnInit {
+export class TutorupdateComponent{
   tutor: Tutor = new Tutor("",0, "", 0);
 
-  constructor(private route: ActivatedRoute) {}
+  router = inject(ActivatedRoute);
+  router2 = inject(Router);
 
-  ngOnInit() {
-    const nome = this.route.snapshot.params['Nome'];
-    if (nome) {
+  constructor() {
+    let nome = this.router.snapshot.params[`nome`];
+    if (nome ) {
       this.findById(nome);
     }
   }
 
-  findById(nome: string) {
+  findById(nome: String) {
     // Simulando uma busca no back-end
-    const tutorRetornado: Tutor = new Tutor(nome,0, "", 25,); // Exemplo sem a requisição HTTP
+    let tutorRetornado: Tutor = new Tutor("joao",0, "", 25,); // Exemplo sem a requisição HTTP
     this.tutor = tutorRetornado;
   }
 
   save() {
-    // Lógica para salvar
+    if(this.tutor.Nome){
+    alert(`Editado com sucesso`);
+    this.router2.navigate([`/tutors`], {state: {tutorEditado: this.tutor}  });
+
+    }else{
+    alert(`Salvo com sucesso`);
+    this.router2.navigate([`/tutors`],  {state: {tutorNovo: this.tutor}  });   
   }
+}
 }

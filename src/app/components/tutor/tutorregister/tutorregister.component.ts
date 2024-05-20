@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { CommonModule } from '@angular/common';
@@ -13,6 +13,7 @@ import { Tutor } from '../../../models/tutor/tutor';
   styleUrl: './tutorregister.component.scss'
 })
 export class TutorregisterComponent {
+  router2 = inject(Router);
  
 
   tutor: Tutor = new Tutor("",0,"",0);
@@ -20,7 +21,14 @@ export class TutorregisterComponent {
 
 
   save(){
-  //
+    if(this.tutor.Nome){
+      alert(`Editado com sucesso`);
+      this.router2.navigate([`/tutors`], {state: {tutorEditado: this.tutor}  });
+  
+      }else{
+      alert(`Salvo com sucesso`);
+      this.router2.navigate([`/tutors`],  {state: {tutorNovo: this.tutor}  });   
+    }
   }
 
 }
