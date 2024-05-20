@@ -29,7 +29,7 @@ export class TutorupdateComponent{
 
   findById(nome: String) {
     // Simulando uma busca no back-end
-    let tutorRetornado: Tutor = new Tutor("joao",0, "", 25,); // Exemplo sem a requisição HTTP
+    let tutorRetornado: Tutor = new Tutor("",0, "", 25,); // Exemplo sem a requisição HTTP
     this.tutor = tutorRetornado;
   }
 

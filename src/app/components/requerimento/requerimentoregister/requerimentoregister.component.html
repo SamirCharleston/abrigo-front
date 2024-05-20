@@ -1,1 +1,30 @@
-<p>requerimentoregister works!</p>
+<div class="container-novo-requerimento">
+    <h3 class="text-center ma-10 m-5">Novo requerimento</h3>
+
+    <div class="block d-flex justify-content-end align-items-center row">
+
+
+        <div class="col-3">Selecione o requerente: </div>
+
+
+        <div class="col-3 d-flex justify-start">
+            <select title="tutor" id="options" class="form-select" [(ngModel)]="tutorSelecionado">
+                @for(tutor of tutores; track tutor.id){
+                    <option class="estilo-opcao-seletor" [value]="tutor.nome">
+                        {{ tutor.nome }}
+                    </option>
+                } @empty {
+                    <option value="nenhum">Nenhum tutor encontrado</option>
+                }
+            </select>
+        </div>
+
+
+        <div class="col-3">dsaf</div>
+
+
+        <div class="col-3">dsafas</div>
+
+
+    </div>
+</div>

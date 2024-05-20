@@ -18,8 +18,9 @@ import { UsuarioAutenticado } from '../../../models/usuario/usuario-autenticado'
 export class LoginComponent {
   nome!: string;
   senha!: string;
-
   usuario: Usuario = new Usuario();
+
+  logado = false;//Apresenta o osso animado na tela
 
   usuarioService = inject(UsuarioService);
 
@@ -44,8 +45,11 @@ export class LoginComponent {
     //retorna um codigo de autenticacao
     this.usuarioService.autenticar(this.usuario).subscribe({
       next: (response: Resposta<UsuarioAutenticado>) => {
-        alert('Usário autenticado com sucesso! ' + response.objeto.codigo);
-        this.router.navigate(['/home']);
+        sessionStorage.setItem('nomeDoUsuario', response.objeto.nome);
+        this.logado = true;
+        setTimeout(() => {
+          this.router.navigate(['/home']);
+        },800)
       },
       error: (error: Resposta<UsuarioAutenticado>) => {
         alert('Houve um problema ao autenticar!');

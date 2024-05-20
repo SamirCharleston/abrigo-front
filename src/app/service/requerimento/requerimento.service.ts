@@ -1,9 +1,19 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Resposta } from '../../models/resposta/resposta';
+import { Requerimento } from '../../models/requerimento/requerimento';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RequerimentoService {
 
-  constructor() { }
+  private http = inject(HttpClient);
+
+  private API = 'http://localhost:8080/api/requerimento'
+
+  listarRequerimentos(): Observable<Resposta<Requerimento[]>> {
+    return this.http.get<Resposta<Requerimento[]>>(this.API + "/listar");
+  }
 }
