@@ -36,7 +36,7 @@ export class RequerimentoregisterComponent {
   }
 
   buscarTutores() {
-    this.tutorService.getAllTutors().subscribe({
+    this.tutorService.findAll().subscribe({
       next: (response: Resposta<Tutor[]>) => {
         this.tutores = response.objeto;
 
