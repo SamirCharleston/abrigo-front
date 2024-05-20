@@ -29,6 +29,15 @@
         </tbody>
     </table> -->
 
+    <div class="block d-flex justify-content-end align-items-center row">
+        <div class="col-1 text-center">ID</div>
+        <div class="col-3">Nome</div>
+        <div class="col-3">Contato</div>
+        <div class="col-2">Data</div>
+        <div class="col-3">
+            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" >Novo Requerimento</button>
+        </div>
+    </div>
     <mdb-accordion>
         @for(requerimento of requerimentos; track requerimento.id){
             <mdb-accordion-item>
@@ -39,6 +48,9 @@
                         </div>
                         <div class="col-3">
                             {{ requerimento.autorDoRequerimento.nome }}
+                        </div>
+                        <div class="col-3">
+                            {{ requerimento.autorDoRequerimento.contato}}
                         </div>
                         <div class="col-5">
                             {{ requerimento.dataDoRequerimento }}
@@ -84,8 +96,8 @@
                         </tbody>
                     </table>
                     <div class="col-12 d-flex justify-content-end">
-                        <button type="button" class="btn btn-light m-1">Atualizar</button>
-                        <button type="button" class="btn btn-light m-1">Excluir</button>
+                        <button type="button" class="btn btn-light m-1 estilo-botao-menu">Atualizar</button>
+                        <button type="button" class="btn btn-light m-1 estilo-botao-menu hover-excluir">Excluir</button>
                     </div>
                 </ng-template>
             </mdb-accordion-item>
