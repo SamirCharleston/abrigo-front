@@ -1,0 +1,58 @@
+.tutor-list-container {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .tutor-list-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .tutor-list-table th, .tutor-list-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .tutor-list-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .action-button {
+    margin-right: 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    
+  }
+  
+  .action-button:hover {
+    background-color: #ddd;
+   
+  }
+  .btn-container {
+    text-align: right;
+  }
+  
+  .btn {
+    margin-right: 20px; /* Adiciona espaçamento entre os botões */
+    
+    color: white; /* Define a cor do texto dos botões como branco */
+    text-align: right;
+  }
+  h1 {
+    font-size: 51px; /* Aumenta o tamanho do texto */
+    color: black; /* Define a cor do texto como preto */
+    margin-bottom: 30px; /* Aumenta a margem inferior */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+
+  .direita{
+    text-align: right;
+  }
