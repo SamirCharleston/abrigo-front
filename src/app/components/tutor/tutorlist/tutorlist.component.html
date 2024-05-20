@@ -1,1 +1,41 @@
-<p>tutorlist works!</p>
+<br>
+<h1>Lista de Tutores</h1>
+<div class="tutor-list-container">
+  <div class="direita">
+  <button type="button" class="btn btn-primary btn-rounded" mdbRipple routerLink="/tutors/new">
+    Novo</button>
+  </div>
+    <br>
+    <table class="tutor-list-table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Contato</th>
+          <th>Endereço</th>
+          <th>Idade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        @for (tutor of listas; track $index) {
+        <tr>
+          <td>{{ tutor.Nome }}</td>
+          <td>{{ tutor.Contato }}</td>
+          <td>{{ tutor.endereco }}</td>
+          <td>{{ tutor.Idade }}</td>
+          <td class="direita">
+            <button type="button" class="btn btn-primary btn-rounded" mdbRipple routerLink="/tutors/edit/id">
+              Editar</button>
+            <button type="button" class="btn btn-danger btn-rounded" mdbRipple (click)="deleteById(tutor)">
+              Deletar</button>
+            
+          </td>
+        </tr>
+      }
+      </tbody>
+    </table>
+  </div>
+  
+  
+  

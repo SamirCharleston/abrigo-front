@@ -52,7 +52,7 @@ export const routes: Routes = [
     { path: 'tutors', component: TutorlistComponent },
     { path: 'tutors/new', component: TutorregisterComponent },
     { path: 'tutors/edit/id', component: TutorupdateComponent },
-    { path: 'tutors/id', component: TutordatailsComponent }
+    { path: 'tutors/list', component: TutordatailsComponent }
 
     //Joao insira suas rotas acima dessa linha
 

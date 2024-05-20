@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 
 @Component({
   selector: 'app-tutordatails',
@@ -8,5 +10,6 @@ import { Component } from '@angular/core';
   styleUrl: './tutordatails.component.scss'
 })
 export class TutordatailsComponent {
+
 
 }
