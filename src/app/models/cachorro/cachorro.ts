@@ -4,4 +4,6 @@ export class Cachorro {
     raca!: string;
     idadeAproximada!: number;
     porte!: string;
+    dataDeAdocao!: Date;
+    descricao!: string;
 }
