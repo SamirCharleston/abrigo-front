@@ -14,7 +14,7 @@ export class TutorService {
 
   constructor() { }
 
-  findAll(): Observable<Resposta<Tutor>> {
-    return this.http.get<Resposta<Tutor>>(this.APi + "/listar");
+  findAll(): Observable<Resposta<Tutor[]>> {
+    return this.http.get<Resposta<Tutor[]>>(this.APi + "/listar");
   }
 }
