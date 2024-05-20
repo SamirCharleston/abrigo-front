@@ -68,7 +68,7 @@
     left: 0vw;
     color: #331304;
     animation: osso-rodando 1s forwards linear;
-    z-index: 1;
+    z-index: 3;
 }
 @keyframes osso-rodando {
     0% {
@@ -78,5 +78,33 @@
     }
     100% {
         transform: rotate(0deg);
+    }
+}
+
+.tela-fade{
+    position: fixed;
+    animation: tela-entrando 1.5s forwards linear;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 1);
+    z-index: 2;
+}
+
+@keyframes tela-entrando {
+    0% {
+        width: 100vw;
+        height: 100vh;
+    }
+    30% {
+        width: 50vw;
+        height: 100vh;
+    }
+    70% {
+        height: 100vh;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        width: 0vw;
     }
 }
