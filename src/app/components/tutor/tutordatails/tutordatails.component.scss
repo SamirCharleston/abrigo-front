@@ -1,0 +1,40 @@
+.tutor-datail-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    font-size: 51px; /* Aumenta o tamanho do texto */
+    color: black; /* Define a cor do texto como preto */
+    margin-bottom: 30px; /* Aumenta a margem inferior */
+    text-align: center; /* Centraliza o texto horizontalmente */
+    font-weight: bold; /* Deixa o texto em negrito */
+  }
+  
+  .tutor-info, .requerimentos {
+    margin-bottom: 20px;
+  }
+  
+  .tutor-info p, .requerimento p {
+    margin: 5px 0;
+  }
+  
+  .requerimento {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    color: #333;
+  }
+  
+  button {
+    display: block;
+    margin: 0 auto;
+  }
+  

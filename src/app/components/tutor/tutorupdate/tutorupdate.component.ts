@@ -10,7 +10,13 @@ import { ActivatedRoute } from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, MdbFormsModule],
   templateUrl: './tutorupdate.component.html',
-  styleUrls: ['./tutorupdate.component.scss']
+  styleUrls: ['./tutorupdate.component.scss'],
+  template: `
+  <form>
+    <label for="testNome">Nome</label>
+    <input type="text" id="testNome" class="form-control" name="testNome" [(ngModel)]="nome" placeholder="Digite seu nome" />
+  </form>
+`
 })
 export class TutorupdateComponent implements OnInit {
   tutor: Tutor = new Tutor("",0, "", 0);
