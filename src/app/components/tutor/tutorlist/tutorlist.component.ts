@@ -19,7 +19,7 @@ export class TutorlistComponent {
 
 deleteById(tutor: Tutor) {
   if(confirm("Tem certeza que deseja deletar?") ){
-    let indice =this.listas.findIndex(x => {return x.Nome == tutor.Nome});
+    let indice =this.listas.findIndex(x => {return x.nome == tutor.nome});
     this.listas.splice(indice, 1);
   }
 }
@@ -29,9 +29,9 @@ listas: Tutor[] = [];
 
 constructor() {
 
-  this.listas.push(new Tutor(`joao`, 99172570,"rua sergipe,75", 17));
-  this.listas.push(new Tutor(`fernando`, 99990088,"rua natal, 88", 21));
-  this.listas.push(new Tutor(`jackson`, 99887766,"rua mila,88", 30));
+  this.listas.push(new Tutor());
+  this.listas.push(new Tutor());
+  this.listas.push(new Tutor());
    
   let tutorNovo = history.state.tutorNovo;
   let tutorEditado = history.state.tutorEditado;
@@ -43,7 +43,7 @@ constructor() {
   }
 
   if(tutorEditado){
-    let indice =this.listas.findIndex(x => {return x.Nome == tutorEditado.nome});
+    let indice =this.listas.findIndex(x => {return x.nome == tutorEditado.nome});
     this.listas[indice] = tutorEditado;
 
   }

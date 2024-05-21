@@ -15,7 +15,7 @@ import { state } from '@angular/animations';
   
 })
 export class TutorupdateComponent{
-  tutor: Tutor = new Tutor("",0, "", 0);
+  tutor: Tutor = new Tutor();
 
   router = inject(ActivatedRoute);
   router2 = inject(Router);
@@ -29,12 +29,12 @@ export class TutorupdateComponent{
 
   findById(nome: String) {
     // Simulando uma busca no back-end
-    let tutorRetornado: Tutor = new Tutor("joao",0, "", 25,); // Exemplo sem a requisição HTTP
+    let tutorRetornado: Tutor = new Tutor(); // Exemplo sem a requisição HTTP
     this.tutor = tutorRetornado;
   }
 
   save() {
-    if(this.tutor.Nome){
+    if(this.tutor.nome){
     alert(`Editado com sucesso`);
     this.router2.navigate([`/tutors`], {state: {tutorEditado: this.tutor}  });
 

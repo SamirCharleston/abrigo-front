@@ -1,17 +1,14 @@
 //Samir insira seus imports abaixo dessa linha
 import { Routes } from '@angular/router';
 import { LoginComponent } from './layouts/login/login/login.component';
-<<<<<<< HEAD
-
-=======
 import { RegistrarComponent } from './layouts/login/registrar/registrar.component';
 import { TelaprincipalComponent } from './layouts/telaprincipal/telaprincipal.component';
 import { MenuprincipalComponent } from './components/menuprincipal/menuprincipal.component';
->>>>>>> dd4d6edf7bc14353a48bd9ca998fdcff36fd1261
 //Samir insira seus imports acima dessa linha
 
 
-//Cassiano insira seus imports abaixo dessa linha
+//Cassiano insira seus 
+// imports abaixo dessa linha
 
 //Cassiano insira seus imports acima dessa linha
 
