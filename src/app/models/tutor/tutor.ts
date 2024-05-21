@@ -9,4 +9,3 @@ export class Tutor {
     endereco!: string;
     requerimentos!: Requerimento[];
 }
-

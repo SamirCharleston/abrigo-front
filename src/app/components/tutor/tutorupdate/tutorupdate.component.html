@@ -21,14 +21,14 @@
 
             <label for="usuario">Nome</label>
             <div class="form-outline" data-mdb-input-init>
-              <input type="text" id="usuario" class="form-control" name="nome" [(ngModel)]="tutor.Nome"  placeholder="Digite seu nome" />
+              <input type="text" id="usuario" class="form-control" name="nome" [(ngModel)]="tutor.nome"  placeholder="Digite seu nome" />
             </div>
         </div>
 
         <div class="form-group">
           <label for="contact">Contato</label>
           <div class="form-outline" data-mdb-input-init>
-            <input type="text" id="contact" class="form-control"[(ngModel)]="tutor.Contato" placeholder="Digite seu contato" />
+            <input type="text" id="contact" class="form-control"[(ngModel)]="tutor.contato" placeholder="Digite seu contato" />
           </div>
         </div>
       </div>
@@ -43,7 +43,7 @@
         <div class="form-group">
           <label for="age">Idade</label>
           <div class="form-outline" data-mdb-input-init>
-            <input type="number" id="age" class="form-control"[(ngModel)]="tutor.Idade" placeholder="Digite sua idade" />
+            <input type="number" id="age" class="form-control"[(ngModel)]="tutor.idade" placeholder="Digite sua idade" />
           </div>
         </div>
       </div>
@@ -60,7 +60,7 @@
   </div>
 
   <div class="btn-container">
-    <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="save()">
+    <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="save()">
       Salvar
     </button>
     
