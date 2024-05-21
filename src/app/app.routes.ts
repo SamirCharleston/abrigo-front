@@ -42,28 +42,29 @@ export const routes: Routes = [
       { path: 'menu-principal', component: MenuprincipalComponent },
       { path: 'requerimentos', component: RequerimentolistComponent },
       { path: 'requerimentos/novo', component: RequerimentoregisterComponent },
+
+      //Samir insira suas rotas acima dessa linha
+
+      //Cassiano insira suas rotas abaixo dessa linha
+
+      //Cassiano insira suas rotas acima dessa linha
+
+      //Luan insira suas rotas abaixo dessa linha
+      { path: 'cachorro', component: CachorrolistComponent },
+      { path: 'cachorro/register', component: CachorroregisterComponent },
+      { path: 'cachorro/details', component: CachorrodetailsComponent },
+      { path: 'cachorro/update', component: CachorroupdateComponent },
+      { path: 'cachorro/list', component: CachorrolistComponent },
+
+      //Luan insira suas rotas acima dessa linha
+
+      //Joao insira suas rotas abaixo dessa linha
+      { path: 'tutors', component: TutorlistComponent },
+      { path: 'tutors/new', component: TutorregisterComponent },
+      { path: 'tutors/edit/id', component: TutorupdateComponent },
+      { path: 'tutors/list', component: TutorlistComponent },
+
+      //Joao insira suas rotas acima dessa linha
     ],
   },
-  //Samir insira suas rotas acima dessa linha
-
-  //Cassiano insira suas rotas abaixo dessa linha
-
-  //Cassiano insira suas rotas acima dessa linha
-
-  //Luan insira suas rotas abaixo dessa linha
-  { path: 'cachorro', component: CachorrolistComponent },
-  { path: 'cachorro/register', component: CachorroregisterComponent },
-  { path: 'cachorro/details', component: CachorrodetailsComponent },
-  { path: 'cachorro/update', component: CachorroupdateComponent },
-  { path: 'cachorro/list', component: CachorrolistComponent },
-
-  //Luan insira suas rotas acima dessa linha
-
-  //Joao insira suas rotas abaixo dessa linha
-  { path: 'tutors', component: TutorlistComponent },
-  { path: 'tutors/new', component: TutorregisterComponent },
-  { path: 'tutors/edit/id', component: TutorupdateComponent },
-  { path: 'tutors/list', component: TutorlistComponent },
-
-  //Joao insira suas rotas acima dessa linha
 ];
