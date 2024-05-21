@@ -1,44 +1,35 @@
-import { Component } from '@angular/core';
-import { Router, Routes } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { CachorrolistComponent } from '../cachorrolist/cachorrolist.component';
-import { RequerimentolistComponent } from '../../requerimento/requerimentolist/requerimentolist.component';
-import { TutorlistComponent } from '../../tutor/tutorlist/tutorlist.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Cachorro } from '../../../models/cachorro/cachorro';
+
 
 @Component({
   selector: 'app-cachorroregister',
   standalone: true,
-  imports: [MdbFormsModule],
+  imports: [CommonModule, FormsModule, MdbFormsModule],
   templateUrl: './cachorroregister.component.html',
   styleUrl: './cachorroregister.component.scss'
 })
+export class CachorroregisterComponent {
+  router2 = inject(Router);
+ 
 
-export class CachorroregisterComponent{
-  cachorro: any = {
-    Nome:'',
-    Raca:'',
-    Idade:'',
-    Porte:'',
-    observacao:''
+  cachorro: Cachorro = new Cachorro();
+
+
+
+  save(){
+    if(this.cachorro.nome){
+      alert(`Editado com sucesso`);
+      this.router2.navigate([`/cachorro/list`], {state: {cachorroEditado: this.cachorro}  });
   
-  };
+      }else{
+      alert(`Salvo com sucesso`);
+      this.router2.navigate([`/cachorro/list`],  {state: {cachorroNovo: this.cachorro}  });   
+    }
+  }
 
-  constructor(private router: Router) {}
-
-onSubmit(): void {
-  
-  console.log('Cachorro registrado:', this.cachorro);
-
-  this.router.navigate(['/cachorros']);
 }
-
-onCancel(): void {
-  this.router.navigate(['/menu-principal']); 
-}
-}
-
-const routes: Routes = [
-  { path: 'cachorro', component: CachorrolistComponent },
-  { path: 'requerimentolist', component: RequerimentolistComponent },
-  { path: 'tutors', component: TutorlistComponent }
-];
