@@ -1,0 +1,71 @@
+<div class="row">
+    <div class="col-1">
+    </div>
+
+    <div id="termo-de-responsabilidade" class="col-10 estilo-geral-do-termo">
+        <h5 class="text-center">TERMO DE RESPONSABILIDADE PARA ADOÇÃO</h5>
+
+        <div class="mt-5">
+            <p class="estilo-titulo-dados">Dados do adotante:</p>
+            <p class="estilo-dados">Nome: {{ "Samir Charleston" }}</p>
+            <p class="estilo-dados">CPF: {{ "08003934907" }}</p>
+            <p class="estilo-dados">Contato: {{ "45999787022" }}</p>
+            <p class="estilo-dados">Endereço: {{ "Rua tres de maio n169 bairro Jardim das Palmeiras" }}</p>
+        </div>
+
+        <div class="mt-5">
+            <p class="estilo-titulo-dados">Dados do(s) cachorro(s):</p> 
+            @for(cachorro of requerimento.caesRequeridos; track cachorro.id; let i = $index){
+                <div class="d-flex">
+                    <p>{{ i + 1 }}:</p>
+                    <div>
+                        <p class="estilo-dados">Nome: {{ cachorro.nome }}</p>
+                        <p class="estilo-dados">Raça: {{ cachorro.raca }}</p>
+                        <p class="estilo-dados">Porte: {{ cachorro.porte }}</p>
+                        <p class="estilo-dados">Idade aproximada (anos): {{ cachorro.idadeAproximada }}</p>
+                    </div>
+                </div>
+            } @empty {
+                <div class="d-flex">
+                    <p class="mr-1em">{{ 1 }} - </p>
+                    <div>
+                        <p class="estilo-dados">Nome: {{ "Sacizinho" }}</p>
+                        <p class="estilo-dados">Raça: {{ "Pitbull" }}</p>
+                        <p class="estilo-dados">Porte: {{ "Medio" }}</p>
+                        <p class="estilo-dados">Idade aproximada (anos): {{ "5" }}</p> 
+                    </div>
+                </div>
+            }
+            </div>
+
+        <p class="estilo-corpo-texto mt-5">Eu, {{ "Samir Charleston" }}, portador do CPF {{ "08003934907" }}, declaro para os devidos fins que assumo a responsabilidade integral pela guarda e bem-estar do(s) cachorro(s) acima descrito(s). Comprometo-me a prover todas as necessidades básicas, incluindo alimentação, abrigo, cuidados veterinários e atenção, garantindo um ambiente seguro e amoroso para o(s) animal(is).
+
+            Estou ciente de que a adoção é um ato de responsabilidade contínua e de longa duração, e que o bem-estar do(s) animal(is) depende do meu compromisso. Também estou ciente de que devo informar imediatamente o abrigo em caso de qualquer problema sério com o(s) cachorro(s), como doenças graves ou comportamentos que possam comprometer a segurança.
+            
+            Comprometo-me a não abandonar, maltratar ou negligenciar o(s) cachorro(s), e a buscar orientação profissional em caso de dificuldades no manejo do comportamento ou saúde do(s) animal(is).
+        </p>
+
+        <div class="d-flex justify-content-evenly mt-10">
+            <div class="d-flex flex-column">
+                <p class="text-center m-0">______________________________________</p>
+                <p class="text-center m-0">{{ "Samir Charleston" }} - Adotante</p>
+            </div>
+
+            <div class="d-flex flex-column">
+                <p class="text-center m-0">______________________________________</p>
+                <p class="text-center m-0">Responsável pelo abrigo </p>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <p class="estilo-corpo-texto">Este termo de responsabilidade é celebrado em Foz do Iguaçu - PR, no dia {{ data }}, entre as partes acima descritas, em duas vias de igual teor, ficando uma com o adotante e outra com o abrigo.</p>
+        </div>
+    </div>
+
+    <div class="col-1">
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button type="button" class="btn btn-dark estilo-botao-menu m-2" mdbRipple (click)="imprimirTermo()"><i class="fas fa-print mr-5"></i>Concluir e imprimir requerimento</button>
+    </div>
+</div>

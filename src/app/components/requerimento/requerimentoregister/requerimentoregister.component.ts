@@ -8,11 +8,12 @@ import { Router } from '@angular/router';
 import { Cachorro } from '../../../models/cachorro/cachorro';
 import { CachorroService } from '../../../service/cachorro/cachorro.service';
 import { RequerimentoService } from '../../../service/requerimento/requerimento.service';
+import { TermoDeResponsabilidadeComponent } from '../../termo-de-responsabilidade/termo-de-responsabilidade.component';
 
 @Component({
   selector: 'app-requerimentoregister',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, TermoDeResponsabilidadeComponent],
   templateUrl: './requerimentoregister.component.html',
   styleUrl: './requerimentoregister.component.scss'
 })
@@ -36,6 +37,8 @@ export class RequerimentoregisterComponent {
   //Controla a apresentacao de elementos da tele
   controlaSelecaoCachorro: boolean[] = []; //Controla a apresentacao das patinhas que representam os cachorros selecionados
 
+  //Exibe o termo de responsabilidade
+  exibirTermoResponsabilidade: boolean = false;
   constructor() {
     this.buscarTutores();//Faz a requisicao de tutores para popular a lista de selecao de tutores
     this.buscarCachorros();//Faz a requisicao de cachorros para popular a lista de selecao de cachorros

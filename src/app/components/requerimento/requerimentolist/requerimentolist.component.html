@@ -1,33 +1,5 @@
 <div class="container-lista-requerimentos">
   <h3 class="text-center ma-10 m-5">Requerimentos</h3>
-  <!-- <table class="w-100">
-        <thead>
-            <tr class="row">
-                <th class="col-3">Nome</th>
-                <th class="col-6">Data do requerimento</th>
-                <th class="col-3 text-center">Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            @for(requerimento of requerimentos; track requerimento.id){
-                <tr class="row destacar-linha-hover">
-                    <td class="col-3">{{ requerimento.autorDoRequerimento.nome }}</td>
-                    <td class="col-6">
-                    @for(cachorro of requerimento.caesRequeridos; track cachorro.id){
-                        {{ cachorro.nome + " " }}
-                    }
-                    </td>
-                    <td class="col-3">
-                        <button type="button" class="btn btn-light">Atualizar</button>
-                        <button type="button" class="btn btn-light">Excluir</button>
-                    </td>
-                </tr>
-            }
-            @empty{
-                <h3 class="text-center estilo-texto-nao-encontrado">Nenhum requerimento encontrado :/</h3>
-            }
-        </tbody>
-    </table> -->
 
   <div class="block d-flex justify-content-end align-items-center row">
     <div class="col-1 text-center">ID</div>
