@@ -16,12 +16,12 @@ export class TutorregisterComponent {
   router2 = inject(Router);
  
 
-  tutor: Tutor = new Tutor("",0,"",0);
+  tutor: Tutor = new Tutor();
 
 
 
   save(){
-    if(this.tutor.Nome){
+    if(this.tutor.nome){
       alert(`Editado com sucesso`);
       this.router2.navigate([`/tutors`], {state: {tutorEditado: this.tutor}  });
   
