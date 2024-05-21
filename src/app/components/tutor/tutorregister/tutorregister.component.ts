@@ -21,14 +21,13 @@ export class TutorregisterComponent {
 
 
   save(){
-    if(this.tutor.nome){
-      alert(`Editado com sucesso`);
-      this.router2.navigate([`/tutors`], {state: {tutorEditado: this.tutor}  });
-  
-      }else{
       alert(`Salvo com sucesso`);
-      this.router2.navigate([`/tutors`],  {state: {tutorNovo: this.tutor}  });   
-    }
+      this.router2.navigate([`/tutors`], {state: {tutorNovo: this.tutor}  });
+  }
+
+  voltar(): void {
+    // Implementar a lógica de navegação de retorno aqui
+    this.router2.navigate([`/tutors`]); 
   }
 
 }

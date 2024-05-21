@@ -34,13 +34,12 @@ export class TutorupdateComponent{
   }
 
   save() {
-    if(this.tutor.nome){
     alert(`Editado com sucesso`);
     this.router2.navigate([`/tutors`], {state: {tutorEditado: this.tutor}  });
+}
 
-    }else{
-    alert(`Salvo com sucesso`);
-    this.router2.navigate([`/tutors`],  {state: {tutorNovo: this.tutor}  });   
-  }
+voltar(): void {
+  this.router2.navigate([`/tutors`]);
+  
 }
 }
