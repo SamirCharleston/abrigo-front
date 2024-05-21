@@ -44,8 +44,8 @@ export const routes: Routes = [
         { path: '', redirectTo: 'menu-principal', pathMatch: 'full'},
         { path: 'menu-principal', component: MenuprincipalComponent},
         { path: 'requerimentos', component: RequerimentolistComponent},
-        { path: 'requerimentos/novo', component: RequerimentoregisterComponent}
-    ]},
+        { path: 'requerimentos/novo', component: RequerimentoregisterComponent},
+    
     //Samir insira suas rotas acima dessa linha
 
 
@@ -68,8 +68,8 @@ export const routes: Routes = [
     { path: 'tutors', component: TutorlistComponent },
     { path: 'tutors/new', component: TutorregisterComponent },
     { path: 'tutors/edit/id', component: TutorupdateComponent },
-    { path: 'tutors/list', component: TutordatailsComponent }
+    { path: 'tutors/list', component: TutorlistComponent }
 
     //Joao insira suas rotas acima dessa linha
-
+]},
 ];
