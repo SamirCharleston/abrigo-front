@@ -1,28 +1,47 @@
-<p>cachorrolist works!</p>
 <div class="container">
-    <table>
-        <tr>
+  <div class="sidenav">
+    <a href="cachorro">Lista de Cachorros</a>
+    <a href="requerimentolist">Lista de Requerimentos</a>
+    <a href="tutors">Lista de Tutores</a>
+  </div>
+  <div
+    class="d-flex align-items-center justify-content-center"
+    style="min-height: 100vh"
+  >
+    <div class="w-50">
+      <h1 class="font-style text-center mb-6"><b>Lista de Cachorros</b></h1>
+      <div class="container">
+        <table>
+          <tr>
             <th>Nome</th>
             <th>Idade</th>
             <th>Porte</th>
             <th>Raca</th>
-            <th>Ações</th>
-        </tr>
-        @for(cachorro of cachorros; track cachorro.id){
-            <tr>
-                <td>{{ cachorro.nome }}</td>
-                <td>{{ cachorro.idadeAproximada }}</td>
-                <td>{{ cachorro.porte }}</td>
-                <td>{{ cachorro.raca }}</td>
-                <td>
-                    <button class="btn btn-primary">Atualizar</button>
-                    <button class="btn btn-danger">Excluir</button>
-                </td>
-            </tr>
-        }
-        @empty{
-            <p>{{ mensagemDeErro }}</p>
-        }
-
-    </table>
+          </tr>
+          @for(cachorro of cachorros; track cachorro.id){
+          <tr>
+            <td>{{ cachorro.nome }}</td>
+            <td>{{ cachorro.idadeAproximada }}</td>
+            <td>{{ cachorro.porte }}</td>
+            <td>{{ cachorro.raca }}</td>
+            <td>
+              <button class="btn btn-primary bg-dark me-4" type="submit">
+                Novo
+              </button>
+              <button
+                class="btn btn-primary bg-dark"
+                type="button"
+                (click)="onCancel()"
+              >
+                Voltar
+              </button>
+            </td>
+          </tr>
+          } @empty{
+          <p>{{ mensagemDeErro }}</p>
+          }
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

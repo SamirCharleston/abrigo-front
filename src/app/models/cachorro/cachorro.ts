@@ -2,8 +2,9 @@ export class Cachorro {
     id!: number;
     nome!: string;
     raca!: string;
-    idadeAproximada!: number;
+    dataAtual!: Date;
     porte!: string;
-    dataDeAdocao!: Date;
-    descricao!: string;
-}
+    idadeAproximada!: number;
+    observacao!: string;
+
+  }

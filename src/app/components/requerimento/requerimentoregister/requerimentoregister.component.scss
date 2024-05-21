@@ -22,3 +22,34 @@
     font-weight: 400;
     color:rgb(202, 202, 202);
 }
+
+.destacar-linha-hover:hover{
+    cursor: pointer;
+    background-color: rgb(245, 245, 245);
+    transition: all 0.3s ease-in-out;
+}
+
+.estilo-cachorro-nao-selecionado{
+    color: rgb(220, 220, 220);
+}
+.animacao-botao-selecionado{
+    animation: botao-selecionado 0.3s forwards cubic-bezier(0,1.74,.28,1.3);
+}
+
+@keyframes botao-selecionado {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+.posicao-botao-concluir{
+    position: fixed;
+    bottom: 10px;
+    right: 1em;
+}

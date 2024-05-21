@@ -17,4 +17,21 @@ export class TutorService {
   findAll(): Observable<Resposta<Tutor[]>> {
     return this.http.get<Resposta<Tutor[]>>(this.APi + "/listar");
   }
+
+  findById(id: number): Observable<Resposta<Tutor>>{
+    return this.http.get<Resposta<Tutor>>(this.APi + "/buscar-id/" + id);
+  }
+
+  save(tutor: Tutor): Observable<Resposta<void>>{
+    return this.http.post<Resposta<void>>(this.APi + "/cadastrar", tutor);
+  }
+
+  delete(id: number): Observable<Resposta<void>>{
+    return this.http.delete<Resposta<void>>(this.APi + "/deletar/" + id);
+  }
+
+  update(tutor: Tutor): Observable<Resposta<void>>{
+    return this.http.put<Resposta<void>>(this.APi + "/atualizar", tutor);
+  }
+  
 }

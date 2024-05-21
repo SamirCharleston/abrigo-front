@@ -25,7 +25,7 @@
 
 
             <div class="col-6">
-              <div class="card estilo-botao-menu-principal">
+              <div class="card estilo-botao-menu-principal" (click)="router.navigate(['home/cachorro/list'])">
                 <div class="card-body">
                   <div class="text-center">
                     <h5 class="card-title">Cachorros</h5>
@@ -36,7 +36,7 @@
             </div>
   
             <div class="col-6">
-              <div class="card estilo-botao-menu-principal" (click)="router.navigate(['tutor'])">
+              <div class="card estilo-botao-menu-principal" (click)="router.navigate(['home/tutors/list'])">
                 <div class="card-body">
                   <div class="text-center">
                     <h5 class="card-title"> Tutores</h5>
