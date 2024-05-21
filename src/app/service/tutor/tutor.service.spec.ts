@@ -1,16 +1,20 @@
-import { TestBed } from '@angular/core/testing';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Tutor } from '../../models/tutor/tutor';
+import { Resposta } from '../../models/resposta/resposta';
 
-import { TutorService } from './tutor.service';
+@Injectable({
+  providedIn: 'root'
+})
+export class TutorService {
+  http = inject(HttpClient)
 
-describe('TutorService', () => {
-  let service: TutorService;
+  APi = 'http://localhost:8080/api/tutor'
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(TutorService);
-  });
+  constructor() { }
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
-});
+  findAll(): Observable<Resposta<Tutor[]>> {
+    return this.http.get<Resposta<Tutor[]>>(this.APi + "/listar");
+  }
+}
