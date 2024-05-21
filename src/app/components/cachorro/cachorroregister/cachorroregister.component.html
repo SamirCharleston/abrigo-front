@@ -32,6 +32,15 @@
 
       <div class="form-row">
         <div class="form-group">
+          <label for="dataDaCriacao">Data</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="date" id="dataDaCriacao" class="form-control"  placeholder="Selecione a data atual" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
           <label for="porte">Porte</label>
           <div class="form-outline" data-mdb-input-init>
             <input type="text" id="porte" class="form-control"  placeholder="Digite o Porte" />
@@ -40,7 +49,7 @@
         <div class="form-group">
           <label for="age">Idade</label>
           <div class="form-outline" data-mdb-input-init>
-            <input type="number" id="age" class="form-control" [(ngModel)]="cachorro.idadeAproximada" placeholder="Digite a idade" />
+            <input type="number" id="idadeAproximada" class="form-control" [(ngModel)]="cachorro.idadeAproximada" placeholder="Digite a idade" />
           </div>
         </div>
       </div>
@@ -48,7 +57,7 @@
       <div class="form-group">
         <label for="observation">Observações/Descrição</label>
         <div class="form-outline" data-mdb-input-init>
-          <textarea id="observation" class="form-control" rows="4" placeholder="Digite suas observações ou descrição"></textarea>
+          <textarea id="descricao" class="form-control" rows="4" placeholder="Digite suas observações ou descrição"></textarea>
         </div>
       </div>
 

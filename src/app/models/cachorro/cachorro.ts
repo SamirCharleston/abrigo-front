@@ -1,10 +1,10 @@
 export class Cachorro {
     id!: number;
+    dataDaCriacao!: Date;
     nome!: string;
     raca!: string;
-    dataAtual!: Date;
-    porte!: string;
     idadeAproximada!: number;
-    observacao!: string;
+    porte!: string;
+    descricao!: string;
 
   }
