@@ -35,7 +35,9 @@ export class TermoDeResponsabilidadeComponent {
 
       document.body.innerHTML = paginaAntiga;
       window.location.reload();//Reinicia a página
-      this.router.navigate(['/menu-principal']);
+      setTimeout(() => {
+        this.router.navigate(['home/menu-principal']);
+       }, 1000);
   }
 
 
