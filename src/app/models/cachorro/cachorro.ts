@@ -1,17 +1,19 @@
 export class Cachorro {
+    id!: number;
     nome: string;
     raca: string;
-    dataAtual: Date;
     porte: string;
-    idade: number;
+    dataDaCriacao: Date;
+    idadeAproximada: number;
     observation: string;
   
     constructor() {
+      
       this.nome = '';
       this.raca = '';
-      this.dataAtual = new Date();
+      this.dataDaCriacao = new Date;
       this.porte = '';
-      this.idade = 0;
+      this.idadeAproximada = 0;
       this.observation = '';
     }
   }
