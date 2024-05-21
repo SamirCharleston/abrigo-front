@@ -1,1 +1,77 @@
-<p>cachorroregister works!</p>
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro Tutor</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap">
+</head>
+
+<body>
+  <br>
+  <h1>Registro de Cachorro </h1>
+
+  <div class="cachorro-register">
+
+    <form  class="form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="name" class="form-control" [(ngModel)]="cachorro.nome" placeholder="Digite o nome" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="raca">Raca</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="raca" class="form-control" [(ngModel)]="cachorro.raca" placeholder="Digite a Raça" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dataAtual">Data data</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="date" id="dataAtual" class="form-control"  placeholder="Selecione a data atual" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="porte">Porte</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="text" id="porte" class="form-control"  placeholder="Digite o Porte" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="age">Idade</label>
+          <div class="form-outline" data-mdb-input-init>
+            <input type="number" id="age" class="form-control" [(ngModel)]="cachorro.idade" placeholder="Digite a idade" />
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="observation">Observações/Descrição</label>
+        <div class="form-outline" data-mdb-input-init>
+          <textarea id="observation" class="form-control" rows="4" placeholder="Digite suas observações ou descrição"></textarea>
+        </div>
+      </div>
+
+    </form>
+
+  </div>
+
+  <div class="btn-container">
+    <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="save()">
+      Salvar
+    </button>
+    
+  </div>
+
+</body>
+
+</html>
