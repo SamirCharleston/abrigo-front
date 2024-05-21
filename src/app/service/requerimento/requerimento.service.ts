@@ -16,4 +16,9 @@ export class RequerimentoService {
   listarRequerimentos(): Observable<Resposta<Requerimento[]>> {
     return this.http.get<Resposta<Requerimento[]>>(this.API + "/listar");
   }
+
+  registrar(requerimento: Requerimento): Observable<Resposta<void>> {
+    return this.http.post<Resposta<void>>(this.API + "/cadastrar", requerimento);
+  }
+
 }

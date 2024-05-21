@@ -3,7 +3,7 @@
   <div class="row">
 
 
-    <div class="menu-lateral bg-dark col-lg-3">
+    <div class="menu-lateral bg-dark col-lg-3 fixed-top">
 
       <div class="menu-titulo d-flex flex-column align-items-center">
         <h4 class="estilo-fonte-titulo">Seja bem vindo!</h4>
@@ -15,8 +15,8 @@
       <div class="navegacao">
         <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['home'])" routerLinkActive="active"><i class="fas fa-home mr-7"></i>Home</button>
         <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['home/requerimentos'])" routerLinkActive="active"><i class="fas fa-bone mr-7"></i>Requerimentos</button>
-        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['cachorro'])" routerLinkActive="active"><i class="fas fa-paw mr-7"></i>Cachorros</button>
-        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['tutor'])" routerLinkActive="active"><i class="fas fa-user mr-7"></i>Tutores</button>
+        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['home/cachorro/list'])" routerLinkActive="active"><i class="fas fa-paw mr-7"></i>Cachorros</button>
+        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu" (click)="router.navigate(['home/tutors/list'])" routerLinkActive="active"><i class="fas fa-user mr-7"></i>Tutores</button>
       </div>
       
       <hr class="hr"/>
@@ -27,6 +27,8 @@
 
     </div>
   
+    <div class="col-lg-3"></div>
+
     <div class="col-lg-9">
       <router-outlet></router-outlet>
     </div>
