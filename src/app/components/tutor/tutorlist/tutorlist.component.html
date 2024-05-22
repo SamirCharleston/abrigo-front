@@ -5,12 +5,14 @@
   <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="router.navigate(['home/tutors/new'])">
     Novo</button>
   </div>
+  
     <br>
     <table class="tutor-list-table">
       <thead>
         <tr>
           <th>Nome</th>
           <th>Contato</th>
+          <th>Cpf</th>
           <th>Endereço</th>
           <th>Idade</th>
           <th>Ações</th>
@@ -22,13 +24,16 @@
         <tr>
           <td>{{ tutor.nome }}</td>
           <td>{{ tutor.contato }}</td>
+          <td>{{ tutor.cpf }}</td>
           <td>{{ tutor.endereco }}</td>
           <td>{{ tutor.idade }}</td>
           <td class="direita">
-            <button type="button" class="btn btn-dark btn-rounded" mdbRipple routerLink="/tutors/edit/id">
+            <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="router.navigate(['home/tutors/edit'])">
               Editar</button>
-            <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="deleteById(tutor)">
-              Deletar</button>
+              <button type="button" class="btn btn-dark btn-rounded" (click)="deleteById(tutor.id)">
+                Deletar
+              </button>
+              
             
           </td>
         </tr>

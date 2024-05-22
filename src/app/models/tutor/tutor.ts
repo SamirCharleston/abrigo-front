@@ -6,4 +6,5 @@ export class Tutor {
   contato!: string;
   idade!: number;
   endereco!: string;
+  cpf!: string;
 }

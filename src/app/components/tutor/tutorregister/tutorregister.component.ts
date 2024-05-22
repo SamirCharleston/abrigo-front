@@ -45,7 +45,7 @@ export class TutorregisterComponent {
 
   voltar(): void {
     // Implementar a lógica de navegação de retorno aqui
-    this.router2.navigate([`/tutors`]); 
+    this.router2.navigate(["home/tutors/list"]); 
   }
 
 }
