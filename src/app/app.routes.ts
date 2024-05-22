@@ -52,7 +52,6 @@ export const routes: Routes = [
       //Luan insira suas rotas abaixo dessa linha
       { path: 'cachorro', component: CachorrolistComponent },
       { path: 'cachorro/register', component: CachorroregisterComponent },
-      { path: 'cachorro/details', component: CachorrodetailsComponent },
       { path: 'cachorro/update', component: CachorroupdateComponent },
       { path: 'cachorro/list', component: CachorrolistComponent },
 

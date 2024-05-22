@@ -18,4 +18,21 @@ export class CachorroService {
   listarCachorros(): Observable<Resposta<Cachorro[]>> {
     return this.http.get<Resposta<Cachorro[]>>(this.API + "/listar");
   }
+
+    findById(id: number): Observable<Resposta<Cachorro>>{
+      return this.http.get<Resposta<Cachorro>>(this.API + "/buscar-id/" + id);
+    }
+  
+    save(cachorro: Cachorro): Observable<Resposta<void>>{
+      return this.http.post<Resposta<void>>(this.API + "/cadastrar", Cachorro);
+    }
+  
+    delete(id: number): Observable<Resposta<void>>{
+      return this.http.delete<Resposta<void>>(this.API + "/deletar/" + id);
+    }
+  
+    update(cachorro: Cachorro): Observable<Resposta<void>>{
+      return this.http.put<Resposta<void>>(this.API + "/atualizar", Cachorro);
+    }
+
 }

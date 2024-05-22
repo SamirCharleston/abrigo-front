@@ -1,45 +1,46 @@
-import { Component, NgModule } from '@angular/core';
-import { Router, RouterModule, Routes } from '@angular/router';
+import { Component, Input, NgModule, inject, input } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { CachorrolistComponent } from '../cachorrolist/cachorrolist.component';
-import { RequerimentolistComponent } from '../../requerimento/requerimentolist/requerimentolist.component';
-import { TutorlistComponent } from '../../tutor/tutorlist/tutorlist.component';
+import { Cachorro } from '../../../models/cachorro/cachorro';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { CachorroService } from '../../../service/cachorro/cachorro.service';
+import { Resposta } from '../../../models/resposta/resposta';
 
 @Component({
   selector: 'app-cachorroupdate',
   standalone: true,
-  imports: [MdbFormsModule],
+  imports: [FormsModule, CommonModule, MdbFormsModule],
   templateUrl: './cachorroupdate.component.html',
   styleUrl: './cachorroupdate.component.scss'
 })
 
 export class CachorroupdateComponent{
-  cachorro: any = {
-    Nome:'',
-    Raca:'',
-    Idade:'',
-    Porte:'',
-    DataAdocao:'',
-    observacao:''
-  
-  };
 
-  constructor(private router: Router) {}
+  @Input('id') id!: number;
 
-onSubmit(): void {
-  
-  console.log('Alteração feita com sucesso:', this.cachorro);
+cachorro!: Cachorro;
+cachorroService = new CachorroService();
 
-  this.router.navigate(['/cachorros']);
+constructor(){
+  this.cachorroService.findById(this.id).subscribe({
+    next: (resposta: Resposta<Cachorro>) => {
+      this.cachorro = resposta.objeto;
+    },
+    error: (erro: any) => {
+      alert(erro.error.mensagem);
+    }
+  })
 }
 
-onCancel(): void {
-  this.router.navigate(['/menu-principal']); 
+save() {
+    this.cachorroService.update(this.cachorro).subscribe({
+      next: (response: Resposta<void>) => {
+        alert(response.mensagem);
+      },
+      error: (error: any) => {
+        alert(error.error.mensagem);
+      }
+    })
 }
 }
-
-const routes: Routes = [
-  { path: 'cachorro', component: CachorrolistComponent },
-  { path: 'requerimentolist', component: RequerimentolistComponent },
-  { path: 'tutors', component: TutorlistComponent }
-];

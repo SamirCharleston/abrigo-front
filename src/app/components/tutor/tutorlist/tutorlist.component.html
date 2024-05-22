@@ -2,7 +2,7 @@
 <h1>Lista de Tutores</h1>
 <div class="tutor-list-container">
   <div class="direita">
-  <button type="button" class="btn btn-dark btn-rounded" mdbRipple routerLink="/tutors/new">
+  <button type="button" class="btn btn-primary btn-rounded" mdbRipple routerLink="/tutors/new">
     Novo</button>
   </div>
     <br>
@@ -25,9 +25,9 @@
           <td>{{ tutor.endereco }}</td>
           <td>{{ tutor.idade }}</td>
           <td class="direita">
-            <button type="button" class="btn btn-dark btn-rounded" mdbRipple routerLink="/tutors/edit/id">
+            <button type="button" class="btn btn-primary btn-rounded" mdbRipple routerLink="/tutors/edit/id">
               Editar</button>
-            <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="deleteById(tutor)">
+            <button type="button" class="btn btn-danger btn-rounded" mdbRipple (click)="deleteById(tutor)">
               Deletar</button>
             
           </td>
@@ -36,9 +36,8 @@
       </tbody>
     </table>
   </div>
-  <img alt="logo" src="../../../assets/cachorro.png" width="15%" />
 
  
-  
+ 
   
   
