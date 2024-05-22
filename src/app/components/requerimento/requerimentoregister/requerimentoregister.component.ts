@@ -27,6 +27,7 @@ export class RequerimentoregisterComponent {
   dataAtual!: string;
   dataParaRequerimento: Date = new Date();
 
+  titulo = 'Novo Requerimento';
   tutores: Tutor[] = [];
   tutorSelecionado!: string;
   requerimento: Requerimento = new Requerimento();
@@ -58,10 +59,11 @@ export class RequerimentoregisterComponent {
       return;
     }
 
+    
     this.requerimentoService.registrar(this.requerimento).subscribe({
       next: (response: Resposta<void>) => {
-        alert(response.mensagem);
-        this.router.navigate(['home/requerimentos']);
+        this.exibirTermoResponsabilidade = true;
+        this.titulo = 'Impressão do termo de responsabilidade';
       },
       error: (error: any) => {
         alert(error.error.mensagem);

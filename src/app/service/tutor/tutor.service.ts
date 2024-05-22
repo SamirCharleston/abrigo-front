@@ -10,28 +10,28 @@ import { Resposta } from '../../models/resposta/resposta';
 export class TutorService {
   http = inject(HttpClient)
 
-  APi = 'http://localhost:8080/api/tutor'
+  API = 'http://localhost:8080/api/tutor'
 
   constructor() { }
-
+  
   findAll(): Observable<Resposta<Tutor[]>> {
-    return this.http.get<Resposta<Tutor[]>>(this.APi + "/listar");
+    return this.http.get<Resposta<Tutor[]>>(this.API + "/listar");
   }
 
-  findById(id: number): Observable<Resposta<Tutor>>{
-    return this.http.get<Resposta<Tutor>>(this.APi + "/buscar-id/" + id);
+  findById(id: number): Observable<Resposta<Tutor>> {
+    return this.http.get<Resposta<Tutor>>(`${this.API}/buscar-id`, { params: { id } });
   }
 
   save(tutor: Tutor): Observable<Resposta<void>>{
-    return this.http.post<Resposta<void>>(this.APi + "/cadastrar", tutor);
+    return this.http.post<Resposta<void>>(this.API + "/cadastrar", tutor);
   }
 
   delete(id: number): Observable<Resposta<void>>{
-    return this.http.delete<Resposta<void>>(this.APi + "/deletar/" + id);
+    return this.http.delete<Resposta<void>>(this.API + "/deletar", { params: { id } });
   }
 
   update(tutor: Tutor): Observable<Resposta<void>>{
-    return this.http.put<Resposta<void>>(this.APi + "/atualizar", tutor);
+    return this.http.put<Resposta<void>>(this.API + "/atualizar", tutor);
   }
   
 }

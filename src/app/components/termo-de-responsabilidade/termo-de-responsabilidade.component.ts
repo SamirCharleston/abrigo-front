@@ -1,4 +1,4 @@
-import { Component, Input, inject, input } from '@angular/core';
+import { Component, Input, Output, inject, input } from '@angular/core';
 import { Requerimento } from '../../models/requerimento/requerimento';
 import { Router } from '@angular/router';
 
@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class TermoDeResponsabilidadeComponent {
   @Input('requerimento') requerimento: Requerimento = new Requerimento();
-
+  @Output('exibeTermoResponsabilidade') exibirTermoResponsabilidade: boolean = true;
   router = inject(Router);
   
   data!: string;
@@ -35,9 +35,6 @@ export class TermoDeResponsabilidadeComponent {
 
       document.body.innerHTML = paginaAntiga;
       window.location.reload();//Reinicia a página
-      setTimeout(() => {
-        this.router.navigate(['home/menu-principal']);
-       }, 1000);
   }
 
 
@@ -53,5 +50,9 @@ export class TermoDeResponsabilidadeComponent {
       mes = '0' + mes;
     }
     return dia + '/' + mes + '/' + ano;
+  }
+
+  voltar(){ 
+    this.router.navigate(['/home/requerimentos']);
   }
 }
