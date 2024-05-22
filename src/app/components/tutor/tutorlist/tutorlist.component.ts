@@ -3,6 +3,8 @@ import { Router, RouterLink } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
 import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { TutorService } from '../../../service/tutor/tutor.service';
+import { Resposta } from '../../../models/resposta/resposta';
 
 @Component({
   selector: 'app-tutorlist',
@@ -12,44 +14,22 @@ import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
   styleUrl: './tutorlist.component.scss'
 })
 export class TutorlistComponent {
+  router = inject(Router);
   
+  listas: Tutor[] = [];
+  tutorService = new TutorService();
 
-
-
-
-deleteById(tutor: Tutor) {
-  if(confirm("Tem certeza que deseja deletar?") ){
-    let indice =this.listas.findIndex(x => {return x.nome == tutor.nome});
-    this.listas.splice(indice, 1);
-  }
-}
-  
-
-listas: Tutor[] = [];
-
-constructor() {
-
-  this.listas.push(new Tutor());
-  this.listas.push(new Tutor());
-  this.listas.push(new Tutor());
-   
-  let tutorNovo = history.state.tutorNovo;
-  let tutorEditado = history.state.tutorEditado;
-
-  if(tutorNovo){
-    tutorNovo.nome = "joao";
-    this.listas.push(tutorNovo);
-
+  constructor() {
+    this.tutorService.findAll().subscribe(
+      (resposta: Resposta<Tutor[]>) => {
+        this.listas = resposta.objeto
+      },
+      (error: any) => {
+        console.log(error.error.mensagem);
+      }
+    )
   }
 
-  if(tutorEditado){
-    let indice =this.listas.findIndex(x => {return x.nome == tutorEditado.nome});
-    this.listas[indice] = tutorEditado;
-
-  }
-
-}
-
-
+  deleteById(tutor: Tutor){}
 
 }
