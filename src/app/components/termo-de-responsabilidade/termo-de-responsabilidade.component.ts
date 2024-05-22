@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './termo-de-responsabilidade.component.scss'
 })
 export class TermoDeResponsabilidadeComponent {
-  @Input('requerimento') requerimento: Requerimento = new Requerimento();
+  @Input('requerimento') requerimento!: Requerimento;
   @Output('exibeTermoResponsabilidade') exibirTermoResponsabilidade: boolean = true;
   router = inject(Router);
   
@@ -41,7 +41,7 @@ export class TermoDeResponsabilidadeComponent {
   //Retorna a data em formato dd/mm/aaaa
   dataFormatada(): string {
     let dia: string = new Date().getDate().toString();
-    let mes = new Date().getMonth().toString();
+    let mes = (new Date().getMonth() + 1).toString();
     let ano = new Date().getFullYear().toString();
     if(dia.length == 1) {
       dia = '0' + dia;
@@ -54,5 +54,11 @@ export class TermoDeResponsabilidadeComponent {
 
   voltar(){ 
     this.router.navigate(['/home/requerimentos']);
+  }
+
+  //Recebe a string e transforma somente a primeira letra em maiuscula
+  primeiraLetraMaiuscula(str: string): string {
+    str = str.toLocaleLowerCase();
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }

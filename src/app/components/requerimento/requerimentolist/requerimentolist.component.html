@@ -25,7 +25,7 @@
             {{ requerimento.id }}
           </div>
           <div class="col-3">
-            {{ requerimento.autorDoRequerimento.nome }}
+            {{ primeiraLetraMaiuscula(requerimento.autorDoRequerimento.nome) }}
           </div>
           <div class="col-3">
             {{ requerimento.autorDoRequerimento.contato }}
@@ -50,9 +50,9 @@
             @for(cachorro of requerimento.caesRequeridos; track cachorro.id){
             <tr class="row">
               <td class="col-1">{{ cachorro.id }}</td>
-              <td class="col-3">{{ cachorro.nome }}</td>
-              <td class="col-2">{{ cachorro.porte }}</td>
-              <td class="col-3">{{ cachorro.raca }}</td>
+              <td class="col-3">{{ primeiraLetraMaiuscula(cachorro.nome) }}</td>
+              <td class="col-2">{{ primeiraLetraMaiuscula(cachorro.porte) }}</td>
+              <td class="col-3">{{ primeiraLetraMaiuscula(cachorro.raca) }}</td>
               <td class="col-1">{{ cachorro.idadeAproximada }}</td>
             </tr>
             } @empty{

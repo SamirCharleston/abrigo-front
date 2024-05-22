@@ -59,7 +59,6 @@ export class RequerimentoregisterComponent {
       return;
     }
 
-    
     this.requerimentoService.registrar(this.requerimento).subscribe({
       next: (response: Resposta<void>) => {
         this.exibirTermoResponsabilidade = true;
@@ -107,5 +106,10 @@ export class RequerimentoregisterComponent {
         console.log(error);
       }
     })
+  }
+
+  primeiraLetraMaiuscula(str: string): string {
+    str = str.toLocaleLowerCase();
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }
