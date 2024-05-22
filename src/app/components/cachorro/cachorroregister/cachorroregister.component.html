@@ -25,7 +25,7 @@
         <div class="form-group">
           <label for="porte">Porte</label>
           <div class="form-outline">
-            <select [(ngModel)]="cachorro.porte">
+            <select id="porte" name="porte" [(ngModel)]="cachorro.porte">
               <option>Pequeno</option>
               <option>Medio</option>
               <option>Grande</option>
@@ -43,7 +43,7 @@
       <div class="form-group">
         <label for="observation">Observações/Descrição</label>
         <div class="form-outline">
-          <textarea id="descricao" class="form-control" rows="4" placeholder="Digite suas observações ou descrição"></textarea>
+          <textarea id="descricao" class="form-control" rows="4" placeholder="Digite suas observações ou descrição" [(ngModel)]="cachorro.descricao"></textarea>
         </div>
       </div>
 

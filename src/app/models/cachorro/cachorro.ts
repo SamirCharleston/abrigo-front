@@ -1,6 +1,6 @@
 export class Cachorro {
     id!: number;
-    dataDaCriacao!: Date;
+    dataDaCriacao!: string;
     nome!: string;
     raca!: string;
     idadeAproximada!: number;

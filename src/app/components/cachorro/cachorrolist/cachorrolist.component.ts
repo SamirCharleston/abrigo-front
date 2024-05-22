@@ -45,9 +45,17 @@ export class CachorrolistComponent {
 
   delete(cachorro: Cachorro) {
     if(confirm("Tem certeza que deseja deletar?") ){
-      let indice =this.listas.findIndex(x => {return x.nome == cachorro.nome});
-      this.listas.splice(indice, 1);
+      this.service.delete(cachorro.id).subscribe({
+        next: (response: Resposta<void>) => {
+          alert('Cachorro deletado com sucesso!');
+          //O router atualiza a pagina para listar novamente
+          window.location.reload();
+        },
+        error: (error: any) => {
+          console.error('Erro ao deletar cachorro:', error);
+          alert('Ocorreu um erro ao deletar o cachorro. Por favor, tente novamente.');
+        }
+      });
     }
   }
-  listas: Cachorro[] = [];
 }
