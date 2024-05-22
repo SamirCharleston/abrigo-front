@@ -17,7 +17,12 @@ export class TelaprincipalComponent {
   iniciaAnimacao = true;
 
   constructor() {
+    if(sessionStorage.getItem('iniciaAnimacao') === 't') {
+      this.iniciaAnimacao = false;
+    }
+
     setTimeout(() => {
+      sessionStorage.setItem('iniciaAnimacao', 't');
       this.iniciaAnimacao = false;
     }, 1000);
   }

@@ -14,11 +14,12 @@ import { Resposta } from '../../../models/resposta/resposta';
   styleUrl: './cachorrolist.component.scss'
 })
 export class CachorrolistComponent {
+  router = inject(Router);
   service: CachorroService = new CachorroService();
   cachorros: Cachorro[] = [];
   mensagemDeErro!: string;
 
-  constructor(private modalService: MdbModalService, private router: Router) {
+  constructor(private modalService: MdbModalService) {
     this.service.listarCachorros().subscribe({
       next: (response: Resposta<Cachorro[]>) => {
         this.cachorros = response.objeto;
@@ -40,5 +41,21 @@ export class CachorrolistComponent {
 
   onCancel(): void {
     this.router.navigate(['/menu-principal']);
+  }
+
+  delete(cachorro: Cachorro) {
+    if(confirm("Tem certeza que deseja deletar?") ){
+      this.service.delete(cachorro.id).subscribe({
+        next: (response: Resposta<void>) => {
+          alert('Cachorro deletado com sucesso!');
+          //O router atualiza a pagina para listar novamente
+          window.location.reload();
+        },
+        error: (error: any) => {
+          console.error('Erro ao deletar cachorro:', error);
+          alert('Ocorreu um erro ao deletar o cachorro. Por favor, tente novamente.');
+        }
+      });
+    }
   }
 }

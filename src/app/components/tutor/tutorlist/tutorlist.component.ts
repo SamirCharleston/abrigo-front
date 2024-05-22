@@ -4,7 +4,10 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
 import { TutorService } from '../../../service/tutor/tutor.service';
 import { Resposta } from '../../../models/resposta/resposta';
+<<<<<<< HEAD
 
+=======
+>>>>>>> e689515e2cefe76701ba0f7583ac32adeaebbfcf
 
 @Component({
   selector: 'app-tutorlist',

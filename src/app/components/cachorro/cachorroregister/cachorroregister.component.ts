@@ -4,6 +4,8 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Cachorro } from '../../../models/cachorro/cachorro';
+import { CachorroService } from '../../../service/cachorro/cachorro.service';
+import { Resposta } from '../../../models/resposta/resposta';
 
 
 @Component({
@@ -14,22 +16,26 @@ import { Cachorro } from '../../../models/cachorro/cachorro';
   styleUrl: './cachorroregister.component.scss'
 })
 export class CachorroregisterComponent {
-  router2 = inject(Router);
- 
+  router = inject(Router);
+  cachorroService = new CachorroService();
 
   cachorro: Cachorro = new Cachorro();
-
-
+  
+  constructor() {
+    this.cachorro.porte = "PEQUENO";
+  }
 
   save(){
-    if(this.cachorro.nome){
-      alert(`Editado com sucesso`);
-      this.router2.navigate([`/cachorro/list`], {state: {cachorroEditado: this.cachorro}  });
-  
-      }else{
-      alert(`Salvo com sucesso`);
-      this.router2.navigate([`/cachorro/list`],  {state: {cachorroNovo: this.cachorro}  });   
-    }
+    this.cachorro.porte = this.cachorro.porte.toUpperCase(); 
+    this.cachorroService.save(this.cachorro).subscribe({
+      next: (resposta: Resposta<void>) => {
+        alert("Salvo com sucesso!");
+        this.router.navigate(['home/cachorro/list']);
+      },
+      error: (error: any) => {
+        alert(error.error.mensagem);
+      }
+    })
   }
 
 }

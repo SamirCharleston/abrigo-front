@@ -28,5 +28,8 @@ export class RequerimentolistComponent {
     })
   }
 
-
+  primeiraLetraMaiuscula(str: string): string {
+    str = str.toLocaleLowerCase();
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
 }

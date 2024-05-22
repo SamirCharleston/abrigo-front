@@ -1,7 +1,7 @@
 <div class="container-novo-requerimento">
-    <h3 class="text-center ma-10 m-5">Novo requerimento</h3>
+    <h3 class="text-center ma-10 m-5">{{ titulo }}</h3>
 
-    @if(exibirTermoResponsabilidade){
+    @if(!exibirTermoResponsabilidade){
 
         <div class="block d-flex justify-content-end align-items-center row">
 
@@ -92,14 +92,14 @@
             title="concluir"
             type="button" 
             class="btn btn-dark estilo-botao-menu m-2" 
-            (click)="enviarRequerimento()"> <i class="fas fa-heart-circle-check mr-5"></i>
+            (click)="enviarRequerimento()"><i class="fas fa-heart-circle-check mr-5"></i>
             Concluir requerimento
             </button>
         </div>
 
     } @else {
         
-        <app-termo-de-responsabilidade></app-termo-de-responsabilidade>
+        <app-termo-de-responsabilidade [requerimento]="requerimento"></app-termo-de-responsabilidade>
 
     }
     
