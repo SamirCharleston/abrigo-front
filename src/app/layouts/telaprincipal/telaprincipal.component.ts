@@ -17,9 +17,9 @@ export class TelaprincipalComponent {
   iniciaAnimacao = true;
 
   constructor() {
-    setTimeout(() => {
-      this.iniciaAnimacao = false;
-    }, 1000);
+    // setTimeout(() => {
+    //   this.iniciaAnimacao = false;
+    // }, 1000);
   }
 
   logout() {

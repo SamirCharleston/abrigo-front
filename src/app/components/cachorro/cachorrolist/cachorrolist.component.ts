@@ -14,11 +14,12 @@ import { Resposta } from '../../../models/resposta/resposta';
   styleUrl: './cachorrolist.component.scss'
 })
 export class CachorrolistComponent {
+  router = inject(Router);
   service: CachorroService = new CachorroService();
   cachorros: Cachorro[] = [];
   mensagemDeErro!: string;
 
-  constructor(private modalService: MdbModalService, private router: Router) {
+  constructor(private modalService: MdbModalService) {
     this.service.listarCachorros().subscribe({
       next: (response: Resposta<Cachorro[]>) => {
         this.cachorros = response.objeto;
@@ -41,4 +42,12 @@ export class CachorrolistComponent {
   onCancel(): void {
     this.router.navigate(['/menu-principal']);
   }
+
+  delete(cachorro: Cachorro) {
+    if(confirm("Tem certeza que deseja deletar?") ){
+      let indice =this.listas.findIndex(x => {return x.nome == cachorro.nome});
+      this.listas.splice(indice, 1);
+    }
+  }
+  listas: Cachorro[] = [];
 }
