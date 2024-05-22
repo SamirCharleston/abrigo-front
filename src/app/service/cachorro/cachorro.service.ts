@@ -31,7 +31,7 @@ export class CachorroService {
       return this.http.delete<Resposta<void>>(this.API + "/deletar/" + id);
     }
   
-    update(tutor: Cachorro): Observable<Resposta<void>>{
+    update(cachorro: Cachorro): Observable<Resposta<void>>{
       return this.http.put<Resposta<void>>(this.API + "/atualizar", Cachorro);
     }
 
