@@ -1,55 +1,52 @@
-import { Component, TemplateRef, ViewChild, inject, viewChild } from '@angular/core';
+import { Component, OnInit,inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
-import { MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
+import { TutorService } from '../../../service/tutor/tutor.service';
+import { Resposta } from '../../../models/resposta/resposta';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tutorlist',
   standalone: true,
   imports: [MdbFormsModule, RouterLink],
   templateUrl: './tutorlist.component.html',
-  styleUrl: './tutorlist.component.scss'
+  styleUrls: ['./tutorlist.component.scss']
 })
-export class TutorlistComponent {
-  
+export class TutorlistComponent implements OnInit {
+  router = inject(Router);
+  tutor: Tutor = new Tutor();
+  listas: Tutor[] = [];
 
+  constructor(private tutorService: TutorService) {} // Injetar o serviço
 
-
-
-deleteById(tutor: Tutor) {
-  if(confirm("Tem certeza que deseja deletar?") ){
-    let indice =this.listas.findIndex(x => {return x.nome == tutor.nome});
-    this.listas.splice(indice, 1);
-  }
-}
-  
-
-listas: Tutor[] = [];
-
-constructor() {
-
-  this.listas.push(new Tutor());
-  this.listas.push(new Tutor());
-  this.listas.push(new Tutor());
-   
-  let tutorNovo = history.state.tutorNovo;
-  let tutorEditado = history.state.tutorEditado;
-
-  if(tutorNovo){
-    tutorNovo.nome = "joao";
-    this.listas.push(tutorNovo);
-
+  ngOnInit() {
+    this.listAll(); // Carregar a lista de tutores ao inicializar
   }
 
-  if(tutorEditado){
-    let indice =this.listas.findIndex(x => {return x.nome == tutorEditado.nome});
-    this.listas[indice] = tutorEditado;
-
+  listAll() {
+    this.tutorService.findAll().subscribe(
+      (resposta: Resposta<Tutor[]>) => {
+        this.listas = resposta.objeto;
+      },
+      (error: any) => {
+        console.log(error.error.mensagem);
+      }
+    );
   }
 
-}
-
-
-
+  deleteById(tutorId: number): void {
+    if(confirm("Tem certeza que deseja deletar este tutor?")) {
+      this.tutorService.delete(tutorId).subscribe(
+        (resposta: Resposta<void>) => {
+          alert('Tutor deletado com sucesso!');
+          // Adicione lógica adicional aqui, como atualizar a lista de tutores
+        },
+        (error) => {
+          console.error('Erro ao deletar tutor', error);
+          alert('Ocorreu um erro ao deletar o tutor. Por favor, tente novamente.');
+        }
+      );
+    }
+  }
 }

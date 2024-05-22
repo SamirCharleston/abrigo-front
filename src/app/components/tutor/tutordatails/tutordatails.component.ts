@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router, RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
+import { Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-tutordatails',
@@ -11,11 +11,12 @@ import { Tutor } from '../../../models/tutor/tutor';
   styleUrl: './tutordatails.component.scss'
 })
 export class TutordatailsComponent {
-  router: any;
+  router2 = inject(Router);
+  
 
   voltar(): void {
     // Implementar a lógica de navegação de retorno aqui
-    console.log('Voltar à lista de tutores');
+    this.router2.navigate([`/tutors`]);
     
   }
   
