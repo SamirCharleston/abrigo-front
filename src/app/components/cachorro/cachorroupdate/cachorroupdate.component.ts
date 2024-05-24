@@ -21,6 +21,8 @@ export class CachorroupdateComponent{
 
 cachorro!: Cachorro;
 cachorroService = new CachorroService();
+router = inject (Router)
+route = inject (ActivatedRoute)
 
 constructor(){
   this.cachorroService.findById(this.id).subscribe({
@@ -37,10 +39,16 @@ save() {
     this.cachorroService.update(this.cachorro).subscribe({
       next: (response: Resposta<void>) => {
         alert(response.mensagem);
+        this.router.navigate(['/home/cachorro/list']);
       },
       error: (error: any) => {
         alert(error.error.mensagem);
       }
     })
+}
+
+voltar(): void {
+  // Implementar a lógica de navegação de retorno aqui
+  this.router.navigate(["home/cachorro/register"]); 
 }
 }

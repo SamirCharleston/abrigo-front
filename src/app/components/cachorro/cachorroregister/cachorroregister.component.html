@@ -1,6 +1,62 @@
 
 <div>
   <br>
+  <h1 class="text-center font-style">Novo Cadastro de Cachorro</h1>
+
+  <div class="cachorro-register">
+    <div>
+      <div>
+        <div>
+          <label for="name">Nome</label>
+          <input type="text" id="name" class="form-control" [(ngModel)]="cachorro.nome" placeholder="Digite o nome do cachorro" />
+        </div>
+
+        <div>
+          <label for="raca">Raca</label>
+          <input type="text" id="contact" class="form-control" [(ngModel)]="cachorro.raca" placeholder="Digite a raca" />
+        </div>
+
+      <div>
+        <label for="porte">Porte</label>
+          <div class="form-outline">
+            <select id="porte" name="porte" [(ngModel)]="cachorro.porte">
+              <option>Pequeno</option>
+              <option>Medio</option>
+              <option>Grande</option>
+            </select>
+      </div>
+    </div>
+
+      <div>
+        <div>
+            <label for="age">Idade Aproximada</label>
+              <input type="number" id="idadeAproximada" class="form-control" [(ngModel)]="cachorro.idadeAproximada" placeholder="Digite a idade" />
+     
+      <div>
+        <label for="observações">Descricao</label>
+        <input type="text" id="descricao" class="form-control" [(ngModel)]="cachorro.descricao" placeholder="Digite a descricao" />
+      </div>
+
+    
+
+  
+
+  <div class="btn-container">
+    <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="save()">
+      Salvar
+    </button>
+    <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="voltar()">
+      Voltar</button>
+    
+  </div>
+
+
+<img alt="logo" src="../../../assets/cachorro.png" width="15%"/>
+
+<!-- /*
+
+<div>
+  <br>
   <h1>Registro de Cachorro </h1>
 
   <div class="cachorro-register">
@@ -51,10 +107,10 @@
   </div>
   
   <div class="btn-container">
-    <button type="button" class="btn btn-primary btn-rounded" (click)="save()">
+    <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" (click)="save()">
       Salvar
     </button>
     
   </div>
 
-</div>
+</div> -->

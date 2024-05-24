@@ -38,4 +38,9 @@ export class CachorroregisterComponent {
     })
   }
 
+  voltar(): void {
+    // Implementar a lógica de navegação de retorno aqui
+    this.router.navigate(["home"]); 
+  }
+
 }

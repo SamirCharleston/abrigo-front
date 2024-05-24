@@ -2,7 +2,7 @@
 <h1>Lista de Cachorros</h1>
 <div class="cachorro-list-container">
   <div class="direita">
-  <button type="button" class="btn btn-primary btn-rounded" mdbRipple (click)="router.navigate(['home/cachorro/register'])">
+  <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple (click)="router.navigate(['home/cachorro/register'])">
     Novo</button>
   </div>
     <br>
@@ -26,9 +26,9 @@
           <td>{{ cachorro.idadeAproximada }}</td>
           <td>{{ cachorro.dataDaCriacao}}</td>
           <td class="direita">
-            <button type="button" class="btn btn-primary btn-rounded" mdbRipple routerLink="home/cachorro/update">
+            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple routerLink="home/cachorro/update">
               Editar</button>
-            <button type="button" class="btn btn-danger btn-rounded" mdbRipple (click)="delete(cachorro)">
+            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple (click)="delete(cachorro)">
               Deletar</button>
             
           </td>
