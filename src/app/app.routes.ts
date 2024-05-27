@@ -60,7 +60,7 @@ export const routes: Routes = [
       //Joao insira suas rotas abaixo dessa linha
       { path: 'tutors', component: TutorlistComponent },
       { path: 'tutors/new', component: TutorregisterComponent },
-      { path: 'tutors/edit', component: TutorupdateComponent },
+      { path: 'tutors/edit/:id', component: TutorupdateComponent },
       { path: 'tutors/list', component: TutorlistComponent },
 
       //Joao insira suas rotas acima dessa linha

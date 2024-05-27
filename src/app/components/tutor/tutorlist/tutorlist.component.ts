@@ -4,10 +4,6 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
 import { TutorService } from '../../../service/tutor/tutor.service';
 import { Resposta } from '../../../models/resposta/resposta';
-<<<<<<< HEAD
-
-=======
->>>>>>> e689515e2cefe76701ba0f7583ac32adeaebbfcf
 
 @Component({
   selector: 'app-tutorlist',
@@ -38,18 +34,24 @@ export class TutorlistComponent implements OnInit {
     );
   }
 
-  deleteById(tutorId: number): void {
-    if(confirm("Tem certeza que deseja deletar este tutor?")) {
-      this.tutorService.delete(tutorId).subscribe(
-        (resposta: Resposta<void>) => {
-          alert('Tutor deletado com sucesso!');
-          // Adicione lógica adicional aqui, como atualizar a lista de tutores
+  deleteById(tutor: Tutor) {
+    if(confirm("Tem certeza que deseja deletar?") ){
+      this.tutorService.delete(tutor.id).subscribe({
+        next: (response: Resposta<void>) => {
+          alert('tutor deletado com sucesso!');
+          //O router atualiza a pagina para listar novamente
+          this.listAll();
         },
-        (error) => {
-          console.error('Erro ao deletar tutor', error);
-          alert('Ocorreu um erro ao deletar o tutor. Por favor, tente novamente.');
+        error: (error: any) => {
+          console.error('Erro ao deletar cachorro:', error);
+          alert('Ocorreu um erro ao deletar o cachorro. Por favor, tente novamente.');
         }
-      );
+      });
     }
+  }
+
+  editar(id : number){
+    this.router.navigate([`home/tutors/edit/${id}`]);
+
   }
 }
