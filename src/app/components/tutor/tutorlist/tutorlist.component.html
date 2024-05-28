@@ -28,11 +28,10 @@
           <td>{{ tutor.endereco }}</td>
           <td>{{ tutor.idade }}</td>
           <td class="direita">
-            <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="router.navigate(['home/tutors/edit'])">
+            <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="editar(tutor.id)">
               Editar</button>
-              <button type="button" class="btn btn-dark btn-rounded" (click)="deleteById(tutor.id)">
-                Deletar
-              </button>
+              <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="deleteById(tutor)">
+                Deletar</button>
               
             
           </td>
@@ -41,6 +40,7 @@
       </tbody>
     </table>
   </div>
+  <img alt="logo" src="../../../assets/cachorro.png" width="15%"/>
 
  
  

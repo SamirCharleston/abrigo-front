@@ -24,7 +24,16 @@ export class TutorregisterComponent {
   tutorService = new TutorService();
 
   constructor() {
-  
+  }
+  findById(id: number) {
+    this.tutorService.findById(id).subscribe({
+      next: (resposta: Resposta<Tutor>) => {
+        this.tutor = resposta.objeto;
+      },
+      error: (error) => {
+        console.log(error);
+      }
+    });
   }
 
   save(){
