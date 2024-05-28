@@ -1,9 +1,10 @@
 <br>
-<h1>Lista de Tutores</h1>
+<h1 class = "text-center ma-10 m-5">Lista de Tutores</h1>
 <div class="tutor-list-container">
   <div class="direita">
-  <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="router.navigate(['home/tutors/new'])">
-    Novo</button>
+  <button type="button" class="btn btn-light m-1 estilo-botao-menu hover-excluir " mdbRipple (click)="router.navigate(['home/tutors/new'])">
+    <i class="fas fa-user-plus mr-5"></i>Novo Tutor
+  </button>
   </div>
   
     <br>
@@ -21,21 +22,22 @@
       <tbody>
 
         @for (tutor of listas; track $index) {
-        <tr>
+        <tr class="tutor-list">
           <td>{{ tutor.nome }}</td>
           <td>{{ tutor.contato }}</td>
           <td>{{ tutor.cpf }}</td>
           <td>{{ tutor.endereco }}</td>
           <td>{{ tutor.idade }}</td>
           <td class="direita">
-            <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="editar(tutor.id)">
+            <button type="button" class="btn btn-light m-1 estilo-botao-menu " mdbRipple (click)="editar(tutor.id)">
               Editar</button>
-              <button type="button" class="btn btn-dark btn-rounded" mdbRipple (click)="deleteById(tutor)">
+              <button type="button" class="btn btn-light m-1 estilo-botao-menu hover-excluir" mdbRipple (click)="deleteById(tutor)">
                 Deletar</button>
               
             
           </td>
         </tr>
+      
       }
       </tbody>
     </table>

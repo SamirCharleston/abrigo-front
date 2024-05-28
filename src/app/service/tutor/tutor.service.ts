@@ -31,7 +31,7 @@
     }
 
     update(tutor: Tutor): Observable<Resposta<void>> {
-      return this.http.put<Resposta<void>>(`${this.API}/atualizar`, tutor);
+      return this.http.put<Resposta<void>>(`${this.API}/atualizar/${tutor.id}`, tutor);
     }
     
   }
