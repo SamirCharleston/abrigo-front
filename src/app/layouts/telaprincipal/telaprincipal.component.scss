@@ -112,3 +112,32 @@
 .overflow-auto{
     overflow: auto;
 }
+
+.animacao-menu-lateral{
+    animation: menu-lateral-entrando 0.5s forwards cubic-bezier(.67,-0.36,.24,1.62);
+}
+
+@keyframes menu-lateral-entrando {
+    0% {
+        width: 0vw;
+    }
+    100% {
+        width: none;
+    }
+}
+
+.animacao-botao-menu{
+    animation: botao-menu-entrando 1s forwards cubic-bezier(.99,.99,.01,.01);
+}
+
+@keyframes botao-menu-entrando {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
