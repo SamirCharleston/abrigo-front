@@ -43,18 +43,18 @@ export class TutorupdateComponent implements OnInit {
     });
   }
 
-    save(tutor : Tutor) {
-    
-      this.tutorService.update(tutor).subscribe({
-        next: (resposta: Resposta<void>) => {
-          alert(resposta.mensagem);
-          this.router2.navigate(['home/tutors/list']);
-        },
-        error: (error: any) => {
-            alert(error.error.mensagem);
-          }
-      });
-    }
+  save(tutor : Tutor) {
+
+    this.tutorService.update(tutor).subscribe({
+      next: (resposta: Resposta<void>) => {
+        alert(resposta.mensagem);
+        this.router2.navigate(['home/tutors/list']);
+      },
+      error: (error: any) => {
+          alert(error.error.mensagem);
+        }
+    });
+  }
 
   voltar(): void {
     this.router2.navigate(['home/tutors/list']);
