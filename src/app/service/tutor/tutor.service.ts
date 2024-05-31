@@ -17,6 +17,8 @@
     findAll(): Observable<Resposta<Tutor[]>> {
       return this.http.get<Resposta<Tutor[]>>(this.API + "/listar");
     }
+    
+    
 
     findById(id: number): Observable<Resposta<Tutor>> {
       return this.http.get<Resposta<Tutor>>(`${this.API}/buscar-id`, { params: { id } });

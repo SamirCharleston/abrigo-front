@@ -4,11 +4,12 @@ import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { Tutor } from '../../../models/tutor/tutor';
 import { TutorService } from '../../../service/tutor/tutor.service';
 import { Resposta } from '../../../models/resposta/resposta';
+import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 
 @Component({
   selector: 'app-tutorlist',
   standalone: true,
-  imports: [MdbFormsModule, RouterLink],
+  imports: [MdbFormsModule, RouterLink, MdbAccordionModule],
   templateUrl: './tutorlist.component.html',
   styleUrls: ['./tutorlist.component.scss']
 })
@@ -18,6 +19,7 @@ export class TutorlistComponent implements OnInit {
   listas: Tutor[] = [];
 
   constructor(private tutorService: TutorService) {} // Injetar o serviço
+
 
   ngOnInit() {
     this.listAll(); // Carregar a lista de tutores ao inicializar
@@ -38,7 +40,7 @@ export class TutorlistComponent implements OnInit {
     if(confirm("Tem certeza que deseja deletar?") ){
       this.tutorService.delete(tutor.id).subscribe({
         next: (response: Resposta<void>) => {
-          alert('tutor deletado com sucesso!');
+          alert('Cachorro deletado com sucesso!');
           //O router atualiza a pagina para listar novamente
           this.listAll();
         },
