@@ -65,12 +65,14 @@
           </tbody>
         </table>
         <div class="col-12 d-flex justify-content-end">
-          <button type="button" class="btn btn-light m-1 estilo-botao-menu">
+          <button type="button" class="btn btn-light m-1 estilo-botao-menu"
+            (click)="atualizarRequerimento(requerimento)">
             Atualizar
           </button>
           <button
             type="button"
             class="btn btn-light m-1 estilo-botao-menu hover-excluir"
+            (click)="excluirRequerimento(requerimento)"
           >
             Excluir
           </button>

@@ -1,1 +1,11 @@
-<p>modal-generico works!</p>
+@if(exibirModal){
+    <div class="modal d-flex justify-content-center align-items-center">
+        <div class="caixa-modal">
+            <div class="header-modal d-flex bg-light ma-10">
+                <h3>{{ titulo }}</h3>
+                <button type="button" class="btn-close" aria-label="Close" (click)="fecharModal()"></button>
+            </div>
+            <ng-content></ng-content>
+        </div>
+    </div>
+}

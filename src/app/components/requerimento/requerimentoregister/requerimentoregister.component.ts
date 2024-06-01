@@ -61,6 +61,7 @@ export class RequerimentoregisterComponent {
 
     this.requerimentoService.registrar(this.requerimento).subscribe({
       next: (response: Resposta<void>) => {
+        alert(response.mensagem);
         this.exibirTermoResponsabilidade = true;
         this.titulo = 'Impressão do termo de responsabilidade';
       },

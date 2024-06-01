@@ -26,6 +26,8 @@ import { TutorregisterComponent } from './components/tutor/tutorregister/tutorre
 import { TutorupdateComponent } from './components/tutor/tutorupdate/tutorupdate.component';
 import { RequerimentolistComponent } from './components/requerimento/requerimentolist/requerimentolist.component';
 import { RequerimentoregisterComponent } from './components/requerimento/requerimentoregister/requerimentoregister.component';
+import { RequerimentodeleteComponent } from './components/requerimento/requerimentodelete/requerimentodelete.component';
+import { RequerimentoupdateComponent } from './components/requerimento/requerimentoupdate/requerimentoupdate.component';
 
 //Joao insira seus imports acima dessa linha
 
@@ -42,7 +44,8 @@ export const routes: Routes = [
       { path: 'menu-principal', component: MenuprincipalComponent },
       { path: 'requerimentos', component: RequerimentolistComponent },
       { path: 'requerimentos/novo', component: RequerimentoregisterComponent },
-
+      { path: 'requerimentos/deletar', component: RequerimentodeleteComponent},
+      { path: 'requerimentos/atualizar', component: RequerimentoupdateComponent},
       //Samir insira suas rotas acima dessa linha
 
       //Cassiano insira suas rotas abaixo dessa linha

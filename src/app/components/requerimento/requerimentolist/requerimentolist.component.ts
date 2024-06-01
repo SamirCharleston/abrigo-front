@@ -3,7 +3,7 @@ import { Requerimento } from '../../../models/requerimento/requerimento';
 import { RequerimentoService } from '../../../service/requerimento/requerimento.service';
 import { Resposta } from '../../../models/resposta/resposta';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-requerimentolist',
@@ -31,5 +31,21 @@ export class RequerimentolistComponent {
   primeiraLetraMaiuscula(str: string): string {
     str = str.toLocaleLowerCase();
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+  excluirRequerimento(requerimento: Requerimento) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        requerimento: requerimento
+      }
+    };
+    this.router.navigate([`home/requerimentos/deletar`], navigationExtras);
+  }
+  atualizarRequerimento(requerimento: Requerimento) {
+    const navigationExtras: NavigationExtras = {
+      state: {
+        requerimento: requerimento
+      }
+    };
+    this.router.navigate([`home/requerimentos/atualizar`], navigationExtras);
   }
 }

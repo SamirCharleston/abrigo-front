@@ -1,0 +1,47 @@
+<div class="container-lista-requerimentos">
+    <h3 class="text-center ma-10 m-5">Exclusão de Requerimento</h3>
+  
+    <div class="block d-flex justify-content-end align-items-center row ml-20">
+      <div class="col-4">ID: {{ requerimento.id }}</div>
+      <div class="col-5">Nome: {{ primeiraLetraMaiuscula(requerimento.autorDoRequerimento.nome) }}</div>
+      <div class="col-3">
+        <button
+          type="button"
+          class="btn btn-primary btn-dark estilo-botao-menu m-2 w-75"
+          (click)="confirmarExclusao()"
+          ><i class="fas fa-trash-alt mr-5"></i>
+          confirmar
+        </button>
+      </div>
+    </div>
+
+    <div class="block d-flex justify-content-end align-items-center row ml-20">
+        <div class="col-4">Contato: {{ requerimento.autorDoRequerimento.contato }}</div>
+        <div class="col-5">Data: {{ requerimento.dataDoRequerimento }}</div>
+        <div class="col-3">
+          <button
+          type="button"
+          class="btn btn-primary btn-dark estilo-botao-menu m-2 w-75"
+          (click)="router.navigate(['home/requerimentos'])"
+          ><i class="fas fa-arrow-left mr-5"></i>
+          Voltar
+          </button>
+        </div>
+    </div>
+
+    <div class="block d-flex justify-content-end align-items-center row ml-20 mt-5">
+      <h5>Cachorros requeridos</h5>
+
+      <div class="col-12 d-flex flex-wrap">
+        @for(cachorro of requerimento.caesRequeridos; track $index) {
+          <div class="w-300-px  mt-5">
+            <p>Id: {{ cachorro.id }}</p>
+            <p>Nome: {{ primeiraLetraMaiuscula(cachorro.nome) }}</p>
+            <p>Raça: {{ primeiraLetraMaiuscula(cachorro.raca) }}</p>
+            <p>Porte: {{ primeiraLetraMaiuscula(cachorro.porte) }}</p>
+            <p>Idade aproximada (anos): {{ cachorro.idadeAproximada }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
