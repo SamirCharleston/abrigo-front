@@ -7,6 +7,8 @@ import { UsuarioService } from '../../../service/usuario/usuario.service';
 import { Usuario } from '../../../models/usuario/usuario';
 import { Resposta } from '../../../models/resposta/resposta';
 import { UsuarioAutenticado } from '../../../models/usuario/usuario-autenticado';
+import { Login } from '../../../service/auth/login';
+import { LoginService } from '../../../service/auth/login.service';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +20,11 @@ import { UsuarioAutenticado } from '../../../models/usuario/usuario-autenticado'
 export class LoginComponent {
   nome!: string;
   senha!: string;
-  usuario: Usuario = new Usuario();
+  login: Login = new Login();
 
   logado = false;//Apresenta o osso animado na tela
 
-  usuarioService = inject(UsuarioService);
+  loginService = inject(LoginService);
 
   router = inject(Router);
 
@@ -34,8 +36,8 @@ export class LoginComponent {
     }
 
     //Passa o valor dos campos para o usuario que sera autenticado
-    this.usuario.nome = this.nome;
-    this.usuario.senha = this.senha;
+    this.login.username = this.nome;
+    this.login.password = this.senha;
 
     //Limpa os campos para se caso voltar na pagina os campos ficam limpos
     this.nome = '';
@@ -43,9 +45,11 @@ export class LoginComponent {
 
     //Envia o usuario para o backend para autenticacao, caso for bem sucedido
     //retorna um codigo de autenticacao
-    this.usuarioService.autenticar(this.usuario).subscribe({
-      next: (response: Resposta<UsuarioAutenticado>) => {
-        sessionStorage.setItem('nomeDoUsuario', response.objeto.nome);
+    this.loginService.logar(this.login).subscribe({
+      next: (token: string) => {
+        this.loginService.addToken(token);
+        // this.loginService.jwtDecode()
+        sessionStorage.setItem('nomeDoUsuario', "Nome fixo");
         this.logado = true;
         setTimeout(() => {
           this.router.navigate(['/home']);

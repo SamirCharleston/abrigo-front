@@ -4,8 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
 import { UsuarioService } from '../../../service/usuario/usuario.service';
-import { Usuario } from '../../../models/usuario/usuario';
 import { Resposta } from '../../../models/resposta/resposta';
+import { Usuario } from '../../../service/auth/usuario';
 
 @Component({
   selector: 'app-registrar',
@@ -35,8 +35,8 @@ export class RegistrarComponent {
     }
 
     //Passa o valor dos campos para o usuario que sera enviado
-    this.usuario.nome = this.nome;
-    this.usuario.senha = this.senha;
+    this.usuario.username = this.nome;
+    this.usuario.password = this.senha;
 
     //Envia o usuario para o backend
     this.usuarioService.registrar(this.usuario).subscribe({
