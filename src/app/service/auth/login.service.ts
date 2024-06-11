@@ -14,7 +14,8 @@ export class LoginService {
   API = "http://localhost:8080/api/login";
 
 
-  constructor() { }
+  constructor() {
+  }
 
 
   logar(login: Login): Observable<string> {

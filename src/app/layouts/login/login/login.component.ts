@@ -28,6 +28,10 @@ export class LoginComponent {
 
   router = inject(Router);
 
+  constructor(){
+    localStorage.clear();
+  }
+
   logar() {
     //Faz a validacao dos campos para verificar se foram todos preenchidos
     if(this.nome == '' || this.senha == '') {

@@ -40,7 +40,7 @@ export class RegistrarComponent {
 
     //Envia o usuario para o backend
     this.usuarioService.registrar(this.usuario).subscribe({
-      next: (response: Resposta<number>) => {
+      next: (response: Resposta<string>) => {
         alert('Usário criado com sucesso!');
         this.router.navigate(['/login']);
       },

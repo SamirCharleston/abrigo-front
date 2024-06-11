@@ -16,8 +16,8 @@ export class UsuarioService {
 
   constructor() { }
 
-  registrar(usuario: Usuario): Observable<Resposta<number>> {
-    return this.http.post<Resposta<number>>(this.API + "/register", usuario);
+  registrar(usuario: Usuario): Observable<Resposta<string>> {
+    return this.http.post<Resposta<string>>(this.API + "/register", usuario);
   }
 
   autenticar(usuario: Usuario): Observable<Resposta<UsuarioAutenticado>> {

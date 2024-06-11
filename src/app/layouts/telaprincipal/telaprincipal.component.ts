@@ -30,6 +30,7 @@ export class TelaprincipalComponent {
   logout() {
     this.nome = '';
     sessionStorage.clear();
+    localStorage.clear();
     this.router.navigate(['/login']);
   }
   //Metodo para deixar a primeira letra maiuscula do nome do usuario
