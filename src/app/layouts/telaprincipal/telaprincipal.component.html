@@ -16,7 +16,9 @@
         <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu animacao-botao-menu" (click)="router.navigate(['home'])" routerLinkActive="active"><i class="fas fa-home mr-7"></i>Home</button>
         <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu animacao-botao-menu" (click)="router.navigate(['home/requerimentos'])" routerLinkActive="active"><i class="fas fa-bone mr-7"></i>Requerimentos</button>
         <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu animacao-botao-menu" (click)="router.navigate(['home/cachorro/list'])" routerLinkActive="active"><i class="fas fa-paw mr-7"></i>Cachorros</button>
-        <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu animacao-botao-menu" (click)="router.navigate(['home/tutors/list'])" routerLinkActive="active"><i class="fas fa-user mr-7"></i>Tutores</button>
+        @if(loginService.hasPermission('ADMIN')) {
+          <button type="button" class="btn btn-dark btn-block hover-botao estilo-botao-menu animacao-botao-menu" (click)="router.navigate(['home/tutors/list'])" routerLinkActive="active"><i class="fas fa-user mr-7"></i>Tutores</button>
+        }
       </div>
       
       <hr class="hr animacao-botao-menu"/>

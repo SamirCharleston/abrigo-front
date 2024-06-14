@@ -24,7 +24,7 @@
             </div>
 
 
-            <div class="col-6">
+            <div [className]="classTamanho">
               <div class="card estilo-botao-menu-principal" (click)="router.navigate(['home/cachorro/list'])">
                 <div class="card-body">
                   <div class="text-center">
@@ -35,16 +35,18 @@
               </div>
             </div>
   
-            <div class="col-6">
-              <div class="card estilo-botao-menu-principal" (click)="router.navigate(['home/tutors/list'])">
-                <div class="card-body">
-                  <div class="text-center">
-                    <h5 class="card-title"> Tutores</h5>
-                    <i class="fas fa-user fa-2x"></i>
+            @if(loginService.hasPermission("ADMIN")){
+              <div [className]="classTamanho">
+                <div class="card estilo-botao-menu-principal" (click)="router.navigate(['home/tutors/list'])">
+                  <div class="card-body">
+                    <div class="text-center">
+                      <h5 class="card-title"> Tutores</h5>
+                      <i class="fas fa-user fa-2x"></i>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            }
           </div>
 
         </div>

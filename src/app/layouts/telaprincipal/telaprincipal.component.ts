@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
+import { LoginService } from '../../service/auth/login.service';
 
 @Component({
   selector: 'app-telaprincipal',
@@ -15,6 +16,8 @@ export class TelaprincipalComponent {
   router = inject(Router);
   nome = sessionStorage.getItem('nomeDoUsuario');
   iniciaAnimacao = true;
+
+  loginService = inject(LoginService);
 
   constructor() {
     if(sessionStorage.getItem('iniciaAnimacao') === 't') {
