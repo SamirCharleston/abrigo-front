@@ -5,6 +5,8 @@ import { Component, TemplateRef, ViewChild, inject } from '@angular/core';
 import { RouterLink, Router, Routes } from '@angular/router';
 import { MdbModalModule, MdbModalRef, MdbModalService } from 'mdb-angular-ui-kit/modal';
 import { Resposta } from '../../../models/resposta/resposta';
+import { LoginService } from '../../../service/auth/login.service';
+import { AuthorizationFor } from '../../../service/auth/authorizationFor';
 
 @Component({
   selector: 'app-cachorrolist',
@@ -15,11 +17,19 @@ import { Resposta } from '../../../models/resposta/resposta';
 })
 export class CachorrolistComponent {
   router = inject(Router);
+  loginService = inject(LoginService);
+
   service: CachorroService = new CachorroService();
   cachorros: Cachorro[] = [];
   mensagemDeErro!: string;
+  ehResponsavel!: boolean;
 
   constructor(private modalService: MdbModalService) {
+    this.listarCachorros();
+    this.ehResponsavel = this.loginService.hasPermission(AuthorizationFor.RESPONSAVEL);
+  }
+
+  listarCachorros(){
     this.service.listarCachorros().subscribe({
       next: (response: Resposta<Cachorro[]>) => {
         this.cachorros = response.objeto;
@@ -49,7 +59,7 @@ export class CachorrolistComponent {
         next: (response: Resposta<void>) => {
           alert('Cachorro deletado com sucesso!');
           //O router atualiza a pagina para listar novamente
-          window.location.reload();
+          this.listarCachorros();
         },
         error: (error: any) => {
           console.error('Erro ao deletar cachorro:', error);
@@ -57,5 +67,8 @@ export class CachorrolistComponent {
         }
       });
     }
+  }
+  update(cachorro: Cachorro) {
+    this.router.navigate(['home/cachorro/update', cachorro.id]);
   }
 }

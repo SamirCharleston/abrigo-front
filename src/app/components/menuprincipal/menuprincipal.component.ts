@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginService } from '../../service/auth/login.service';
+import { AuthorizationFor } from '../../service/auth/authorizationFor';
 
 @Component({
   selector: 'app-menuprincipal',
@@ -14,9 +15,12 @@ export class MenuprincipalComponent {
   loginService = inject(LoginService);
 
   classTamanho = 'col-6';
+  ehResponsavel!: boolean;
 
   constructor() {
-    if(this.loginService.hasPermission('USER')) {
+    this.ehResponsavel = this.loginService.hasPermission(AuthorizationFor.RESPONSAVEL);
+
+    if(!this.ehResponsavel) {
       this.classTamanho = 'col-12';
     }
   }

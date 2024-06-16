@@ -25,6 +25,8 @@ router = inject (Router)
 route = inject (ActivatedRoute)
 
 constructor(){
+  this.id = this.route.snapshot.params['id'];
+
   this.cachorroService.findById(this.id).subscribe({
     next: (resposta: Resposta<Cachorro>) => {
       this.cachorro = resposta.objeto;
@@ -49,6 +51,6 @@ save() {
 
 voltar(): void {
   // Implementar a lógica de navegação de retorno aqui
-  this.router.navigate(["home/cachorro/register"]); 
+  this.router.navigate(["home/cachorro/list"]); 
 }
 }

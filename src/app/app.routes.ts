@@ -28,6 +28,7 @@ import { RequerimentolistComponent } from './components/requerimento/requeriment
 import { RequerimentoregisterComponent } from './components/requerimento/requerimentoregister/requerimentoregister.component';
 import { RequerimentodeleteComponent } from './components/requerimento/requerimentodelete/requerimentodelete.component';
 import { RequerimentoupdateComponent } from './components/requerimento/requerimentoupdate/requerimentoupdate.component';
+import { loginGuard } from './service/auth/login.guard';
 
 //Joao insira seus imports acima dessa linha
 
@@ -37,8 +38,7 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: RegistrarComponent },
   {
-    path: 'home',
-    component: TelaprincipalComponent,
+    path: 'home', component: TelaprincipalComponent, canActivate: [loginGuard],
     children: [
       { path: '', redirectTo: 'menu-principal', pathMatch: 'full' },
       { path: 'menu-principal', component: MenuprincipalComponent },
@@ -55,7 +55,7 @@ export const routes: Routes = [
       //Luan insira suas rotas abaixo dessa linha
       { path: 'cachorro', component: CachorrolistComponent },
       { path: 'cachorro/register', component: CachorroregisterComponent },
-      { path: 'cachorro/update', component: CachorroupdateComponent },
+      { path: 'cachorro/update/:id', component: CachorroupdateComponent },
       { path: 'cachorro/list', component: CachorrolistComponent },
 
       //Luan insira suas rotas acima dessa linha

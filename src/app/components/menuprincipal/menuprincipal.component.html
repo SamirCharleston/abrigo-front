@@ -35,7 +35,7 @@
               </div>
             </div>
   
-            @if(loginService.hasPermission("ADMIN")){
+            @if(ehResponsavel){
               <div [className]="classTamanho">
                 <div class="card estilo-botao-menu-principal" (click)="router.navigate(['home/tutors/list'])">
                   <div class="card-body">

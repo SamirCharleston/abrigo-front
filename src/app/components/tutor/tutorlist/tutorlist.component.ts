@@ -45,8 +45,8 @@ export class TutorlistComponent implements OnInit {
           this.listAll();
         },
         error: (error: any) => {
-          console.error('Erro ao deletar cachorro:', error);
-          alert('Ocorreu um erro ao deletar o cachorro. Por favor, tente novamente.');
+          console.error('Erro ao deletar tutor:', error);
+          alert('Ocorreu um erro ao deletar o tutor. Por favor, tente novamente.');
         }
       });
     }

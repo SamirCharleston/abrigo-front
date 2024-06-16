@@ -40,7 +40,7 @@ export class CachorroregisterComponent {
 
   voltar(): void {
     // Implementar a lógica de navegação de retorno aqui
-    this.router.navigate(["home"]); 
+    this.router.navigate(["home/cachorro/list"]);
   }
 
 }

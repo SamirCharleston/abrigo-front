@@ -50,5 +50,7 @@ export class LoginService {
       return false;
   }
 
-
+  getTokenPayload(){
+    return this.jwtDecode() as Usuario;
+  }
 }

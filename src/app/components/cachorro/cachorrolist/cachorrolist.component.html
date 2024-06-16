@@ -26,11 +26,12 @@
           <td>{{ cachorro.idadeAproximada }}</td>
           <td>{{ cachorro.dataDaCriacao}}</td>
           <td class="direita">
-            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple routerLink="home/cachorro/update">
+            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple (click)="update(cachorro)">
               Editar</button>
-            <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple (click)="delete(cachorro)">
-              Deletar</button>
-            
+            @if(ehResponsavel){
+              <button type="button" class="btn btn-primary btn-dark estilo-botao-menu m-2" mdbRipple (click)="delete(cachorro)">
+                Deletar</button>
+            }
           </td>
         </tr>
       }

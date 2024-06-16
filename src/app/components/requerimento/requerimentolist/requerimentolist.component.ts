@@ -4,6 +4,8 @@ import { RequerimentoService } from '../../../service/requerimento/requerimento.
 import { Resposta } from '../../../models/resposta/resposta';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { NavigationExtras, Router } from '@angular/router';
+import { LoginService } from '../../../service/auth/login.service';
+import { AuthorizationFor } from '../../../service/auth/authorizationFor';
 
 @Component({
   selector: 'app-requerimentolist',
@@ -15,6 +17,9 @@ import { NavigationExtras, Router } from '@angular/router';
 export class RequerimentolistComponent {
   router = inject(Router);
   requerimentoService = inject(RequerimentoService);
+  loginService = inject(LoginService);
+  ehResponsavel!: boolean;
+
   requerimentos!: Requerimento[];
 
   constructor() {
@@ -25,7 +30,9 @@ export class RequerimentolistComponent {
       error: (error: Resposta<Requerimento[]>) => {
         console.log(error);
       }
-    })
+    });
+
+    this.ehResponsavel = this.loginService.hasPermission(AuthorizationFor.RESPONSAVEL);
   }
 
   primeiraLetraMaiuscula(str: string): string {

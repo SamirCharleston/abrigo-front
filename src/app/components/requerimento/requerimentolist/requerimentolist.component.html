@@ -7,13 +7,15 @@
     <div class="col-3">Contato</div>
     <div class="col-2">Data</div>
     <div class="col-3">
-      <button
-        type="button"
-        class="btn btn-primary btn-dark estilo-botao-menu m-2"
-        (click)="router.navigate(['home/requerimentos/novo'])"
-      ><i class="fas fa-plus mr-5"></i>
-        Novo Requerimento
-      </button>
+      @if(ehResponsavel){
+        <button
+          type="button"
+          class="btn btn-primary btn-dark estilo-botao-menu m-2"
+          (click)="router.navigate(['home/requerimentos/novo'])"
+        ><i class="fas fa-plus mr-5"></i>
+          Novo Requerimento
+        </button>
+      }
     </div>
   </div>
   <mdb-accordion>
@@ -64,19 +66,21 @@
             }
           </tbody>
         </table>
-        <div class="col-12 d-flex justify-content-end">
-          <button type="button" class="btn btn-light m-1 estilo-botao-menu"
-            (click)="atualizarRequerimento(requerimento)">
-            Atualizar
-          </button>
-          <button
-            type="button"
-            class="btn btn-light m-1 estilo-botao-menu hover-excluir"
-            (click)="excluirRequerimento(requerimento)"
-          >
-            Excluir
-          </button>
-        </div>
+        @if(ehResponsavel){
+          <div class="col-12 d-flex justify-content-end">
+            <button type="button" class="btn btn-light m-1 estilo-botao-menu"
+              (click)="atualizarRequerimento(requerimento)">
+              Atualizar
+            </button>
+            <button
+              type="button"
+              class="btn btn-light m-1 estilo-botao-menu hover-excluir"
+              (click)="excluirRequerimento(requerimento)"
+            >
+              Excluir
+            </button>
+          </div>
+        }
       </ng-template>
     </mdb-accordion-item>
     } @empty{

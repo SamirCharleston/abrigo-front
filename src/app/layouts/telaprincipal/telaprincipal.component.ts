@@ -4,6 +4,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { Router } from '@angular/router';
 import { MdbAccordionModule } from 'mdb-angular-ui-kit/accordion';
 import { LoginService } from '../../service/auth/login.service';
+import { AuthorizationFor } from '../../service/auth/authorizationFor';
 
 @Component({
   selector: 'app-telaprincipal',
@@ -13,11 +14,13 @@ import { LoginService } from '../../service/auth/login.service';
   styleUrl: './telaprincipal.component.scss'
 })
 export class TelaprincipalComponent {
-  router = inject(Router);
-  nome = sessionStorage.getItem('nomeDoUsuario');
-  iniciaAnimacao = true;
 
+  router = inject(Router);
   loginService = inject(LoginService);
+
+  nome!: string;
+  iniciaAnimacao = true;
+  ehResponsavel!: boolean;
 
   constructor() {
     if(sessionStorage.getItem('iniciaAnimacao') === 't') {
@@ -28,6 +31,9 @@ export class TelaprincipalComponent {
       sessionStorage.setItem('iniciaAnimacao', 't');
       this.iniciaAnimacao = false;
     }, 1000);
+
+    this.ehResponsavel = this.loginService.hasPermission(AuthorizationFor.RESPONSAVEL);
+    this.nome = this.loginService.getTokenPayload().username;
   }
 
   logout() {
