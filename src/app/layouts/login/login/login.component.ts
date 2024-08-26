@@ -3,12 +3,11 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { MdbFormsModule } from 'mdb-angular-ui-kit/forms';
-import { UsuarioService } from '../../../service/usuario/usuario.service';
-import { Usuario } from '../../../models/usuario/usuario';
 import { Resposta } from '../../../models/resposta/resposta';
 import { UsuarioAutenticado } from '../../../models/usuario/usuario-autenticado';
 import { Login } from '../../../service/auth/login';
 import { LoginService } from '../../../service/auth/login.service';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -53,7 +52,7 @@ export class LoginComponent {
       next: (token: string) => {
         this.loginService.addToken(token);
         // this.loginService.jwtDecode()
-        sessionStorage.setItem('nomeDoUsuario', "Nome fixo");
+        // sessionStorage.setItem('nomeDoUsuario', "Nome fixo");
         this.logado = true;
         setTimeout(() => {
           this.router.navigate(['/home']);
@@ -63,5 +62,10 @@ export class LoginComponent {
         alert('Houve um problema ao autenticar!');
       }
     })
+  }
+
+  logarOauth2() {
+    const oauth2Url = environment.SERVIDOR + '/oauth2/authorization/google';
+    window.location.href = oauth2Url;
   }
 }

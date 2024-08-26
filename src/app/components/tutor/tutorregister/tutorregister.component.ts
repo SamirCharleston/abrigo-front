@@ -49,7 +49,7 @@ export class TutorregisterComponent {
       }
       )
 
-      this.router2.navigate([`/tutors`], {state: {tutorNovo: this.tutor}  });
+      // this.router2.navigate([`home/tutors`], {state: {tutorNovo: this.tutor}  });
   }
 
   voltar(): void {

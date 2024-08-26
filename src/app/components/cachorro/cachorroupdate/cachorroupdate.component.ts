@@ -38,6 +38,7 @@ constructor(){
 }
 
 save() {
+    this.cachorro.porte = this.cachorro.porte.toUpperCase();
     this.cachorroService.update(this.cachorro).subscribe({
       next: (response: Resposta<void>) => {
         alert(response.mensagem);

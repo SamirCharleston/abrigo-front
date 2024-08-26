@@ -29,6 +29,11 @@ import { RequerimentoregisterComponent } from './components/requerimento/requeri
 import { RequerimentodeleteComponent } from './components/requerimento/requerimentodelete/requerimentodelete.component';
 import { RequerimentoupdateComponent } from './components/requerimento/requerimentoupdate/requerimentoupdate.component';
 import { loginGuard } from './service/auth/login.guard';
+import { CallbackComponentComponent } from './components/callbackComponent/callback-component/callback-component.component';
+import { AuditoriaComponent } from './pages/auditoria/auditoria.component';
+import { CachorrosComponent } from './pages/auditoria/cachorros/cachorros.component';
+import { TutoresComponent } from './pages/auditoria/tutores/tutores.component';
+import { RequerimentosComponent } from './pages/auditoria/requerimentos/requerimentos.component';
 
 //Joao insira seus imports acima dessa linha
 
@@ -46,6 +51,10 @@ export const routes: Routes = [
       { path: 'requerimentos/novo', component: RequerimentoregisterComponent },
       { path: 'requerimentos/deletar', component: RequerimentodeleteComponent},
       { path: 'requerimentos/atualizar', component: RequerimentoupdateComponent},
+      { path: 'auditoria', component: AuditoriaComponent},
+      { path: 'auditoria/cachorros-list', component: CachorrosComponent},
+      { path: 'auditoria/tutores-list', component: TutoresComponent},
+      { path: 'auditoria/requerimentos-list', component: RequerimentosComponent},
       //Samir insira suas rotas acima dessa linha
 
       //Cassiano insira suas rotas abaixo dessa linha

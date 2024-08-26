@@ -3,6 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Resposta } from '../../models/resposta/resposta';
 import { Requerimento } from '../../models/requerimento/requerimento';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class RequerimentoService {
 
   private http = inject(HttpClient);
 
-  private API = 'http://localhost:8080/api/requerimento'
+  private API = environment.SERVIDOR + "/api/requerimento";
 
   constructor() { }
 

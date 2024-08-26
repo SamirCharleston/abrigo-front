@@ -4,6 +4,7 @@ import { Resposta } from '../../models/resposta/resposta';
 import { Observable } from 'rxjs';
 import { UsuarioAutenticado } from '../../models/usuario/usuario-autenticado';
 import { Usuario } from '../auth/usuario';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class UsuarioService {
 
   private http = inject(HttpClient)
 
-  private API = 'http://localhost:8080/api'
+  private API = environment.SERVIDOR + "/api";
 
   constructor() { }
 

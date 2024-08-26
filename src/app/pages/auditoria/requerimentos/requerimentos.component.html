@@ -1,0 +1,71 @@
+<div class="container-lista-requerimentos">
+    <h3 class="text-center ma-10 m-5">Auditar cachorros</h3>
+  
+    <div class="block d-flex justify-content-end align-items-center row">
+      <div class="col-1 text-center">ID</div>
+      <div class="col-2">Requerente</div>
+      <div class="col-2">Criado por</div>
+      <div class="col-2">Criação</div>
+      <div class="col-2">Modificado por</div>
+      <div class="col-3">Modificação</div>
+    </div>
+    <mdb-accordion>
+      @for(requerimento of requerimentos; track requerimento.id){
+      <mdb-accordion-item>
+        <ng-template mdbAccordionItemHeader>
+          <div class="row w-100 d-flex align-items-center">
+            <div class="col-1">
+              {{ requerimento.id }}
+            </div>
+            <div class="col-2">
+              {{ primeiraLetraMaiuscula(requerimento.autorDoRequerimento.nome) }}
+            </div>
+            <div class="col-2">
+              {{ primeiraLetraMaiuscula(requerimento.criadoPor) }}
+            </div>
+            <div class="col-2">
+              {{ dataFormatada(requerimento.dataDaCriacao) }}
+            </div>
+            <div class="col-2 text-center">
+              {{ primeiraLetraMaiuscula(requerimento.atualizadoPor) }}
+            </div>
+            <div class="col-3">
+              {{ dataFormatada(requerimento.dataDeAtualizacao) }}
+            </div>
+          </div>
+        </ng-template>
+        <ng-template mdbAccordionItemBody>
+          <div>
+            <h4 class="text-center">Cães requeridos</h4>
+            <table class="w-100">
+              <thead>
+                <tr class="row">
+                    <th class="col-1">Id</th>
+                    <th class="col-2">Porte</th>
+                    <th class="col-3">Raca</th>
+                    <th class="col-3">Idade (anos)</th>
+                    <th class="col-3"></th>
+                </tr>
+              </thead>
+              <tbody>
+                @for(cachorro of requerimento.caesRequeridos; track cachorro.id){
+                  <tr class="row">
+                    <td class="col-1">{{ cachorro.id }}</td>
+                    <td class="col-2">{{ primeiraLetraMaiuscula(cachorro.porte) }}</td>
+                    <td class="col-3">{{ primeiraLetraMaiuscula(cachorro.raca) }}</td>
+                    <td class="col-3">{{ cachorro.idadeAproximada }}</td>
+                    <th class="col-3"></th>
+                  </tr>
+                }
+              </tbody>
+            </table>
+          </div>
+        </ng-template>
+      </mdb-accordion-item>
+      } @empty{
+      <h3 class="text-center estilo-texto-nao-encontrado">
+        Nenhum cachorro encontrado :/
+      </h3>
+      }
+    </mdb-accordion>
+  </div>

@@ -1,0 +1,64 @@
+<div class="container-lista-requerimentos">
+  <h3 class="text-center ma-10 m-5">Auditar cachorros</h3>
+
+  <div class="block d-flex justify-content-end align-items-center row">
+    <div class="col-1 text-center">ID</div>
+    <div class="col-2">Nome do Cachorro</div>
+    <div class="col-2">Criado por</div>
+    <div class="col-2">Criação</div>
+    <div class="col-2">Modificado por</div>
+    <div class="col-3">Modificação</div>
+  </div>
+  <mdb-accordion>
+    @for(cachorro of cachorros; track cachorro.id){
+    <mdb-accordion-item>
+      <ng-template mdbAccordionItemHeader>
+        <div class="row w-100 d-flex align-items-center">
+          <div class="col-1">
+            {{ cachorro.id }}
+          </div>
+          <div class="col-2">
+            {{ primeiraLetraMaiuscula(cachorro.nome) }}
+          </div>
+          <div class="col-2">
+            {{ primeiraLetraMaiuscula(cachorro.criadoPor) }}
+          </div>
+          <div class="col-2">
+            {{ dataFormatada(cachorro.dataDaCriacao) }}
+          </div>
+          <div class="col-2 text-center">
+            {{ primeiraLetraMaiuscula(cachorro.atualizadoPor) }}
+          </div>
+          <div class="col-3">
+            {{ dataFormatada(cachorro.dataDeAtualizacao) }}
+          </div>
+        </div>
+      </ng-template>
+      <ng-template mdbAccordionItemBody>
+        <table class="w-100">
+          <thead>
+            <tr class="row">
+                <th class="col-2">Porte</th>
+                <th class="col-3">Raca</th>
+                <th class="col-3">Idade (anos)</th>
+                <th class="col-4"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="row">
+              <td class="col-2">{{ primeiraLetraMaiuscula(cachorro.porte) }}</td>
+              <td class="col-3">{{ primeiraLetraMaiuscula(cachorro.raca) }}</td>
+              <td class="col-3">{{ cachorro.idadeAproximada }}</td>
+              <th class="col-4"></th>
+            </tr>
+          </tbody>
+        </table>
+      </ng-template>
+    </mdb-accordion-item>
+    } @empty{
+    <h3 class="text-center estilo-texto-nao-encontrado">
+      Nenhum cachorro encontrado :/
+    </h3>
+    }
+  </mdb-accordion>
+</div>

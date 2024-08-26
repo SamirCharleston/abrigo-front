@@ -3,20 +3,21 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cachorro } from '../../models/cachorro/cachorro';
 import { Resposta } from '../../models/resposta/resposta';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class CachorroService {
-  http = inject(HttpClient);
+  private http = inject(HttpClient);
 
-  API = 'http://localhost:8080/api/cachorro';
+  private API = environment.SERVIDOR + "/api/cachorro";
   
   constructor() { }
 
-  listarCachorros(): Observable<Resposta<Cachorro[]>> {
-    return this.http.get<Resposta<Cachorro[]>>(this.API + "/listar");
+  listarCachorros(audit: boolean = false): Observable<Resposta<Cachorro[]>> {
+    return this.http.get<Resposta<Cachorro[]>>(this.API + "/listar?audit=" + audit);
   }
 
     findById(id: number): Observable<Resposta<Cachorro>>{

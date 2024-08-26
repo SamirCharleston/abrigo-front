@@ -1,16 +1,16 @@
-  import { HttpClient } from '@angular/common/http';
-  import { Injectable, inject } from '@angular/core';
-  import { Observable } from 'rxjs';
-  import { Tutor } from '../../models/tutor/tutor';
-  import { Resposta } from '../../models/resposta/resposta';
-
+import { HttpClient } from '@angular/common/http';
+import { Injectable, inject } from '@angular/core';
+import { Resposta } from '../../models/resposta/resposta';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { Tutor } from '../../models/tutor/tutor';
   @Injectable({
     providedIn: 'root'
   })
   export class TutorService {
-    http = inject(HttpClient)
+    private http = inject(HttpClient)
 
-    API = 'http://localhost:8080/api/tutor'
+    private API = environment.SERVIDOR + "/api/tutor";
 
     constructor() { }
     
@@ -19,7 +19,6 @@
     }
     
     
-
     findById(id: number): Observable<Resposta<Tutor>> {
       return this.http.get<Resposta<Tutor>>(`${this.API}/buscar-id`, { params: { id } });
     }
