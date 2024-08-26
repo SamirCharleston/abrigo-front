@@ -36,25 +36,27 @@
         </ng-template>
         <ng-template mdbAccordionItemBody>
           <div>
-            <h4 class="text-center">Cães requeridos</h4>
+            <h5 class="text-center">Cães requeridos</h5>
             <table class="w-100">
               <thead>
                 <tr class="row">
+                    <th class="col-1"></th>
                     <th class="col-1">Id</th>
                     <th class="col-2">Porte</th>
                     <th class="col-3">Raca</th>
                     <th class="col-3">Idade (anos)</th>
-                    <th class="col-3"></th>
+                    <th class="col-2"></th>
                 </tr>
               </thead>
               <tbody>
                 @for(cachorro of requerimento.caesRequeridos; track cachorro.id){
                   <tr class="row">
+                    <th class="col-1"></th>
                     <td class="col-1">{{ cachorro.id }}</td>
                     <td class="col-2">{{ primeiraLetraMaiuscula(cachorro.porte) }}</td>
                     <td class="col-3">{{ primeiraLetraMaiuscula(cachorro.raca) }}</td>
                     <td class="col-3">{{ cachorro.idadeAproximada }}</td>
-                    <th class="col-3"></th>
+                    <th class="col-2"></th>
                   </tr>
                 }
               </tbody>
