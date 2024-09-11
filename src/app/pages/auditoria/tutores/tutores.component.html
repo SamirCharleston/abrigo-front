@@ -1,13 +1,14 @@
 <div class="container-lista-requerimentos">
     <h3 class="text-center ma-10 m-5">Auditar tutores</h3>
   
-    <div class="block d-flex justify-content-end align-items-center row">
-      <div class="col-1 text-center">ID</div>
-      <div class="col-2">Nome do tutor</div>
-      <div class="col-2">Criado por</div>
-      <div class="col-2">Criação</div>
-      <div class="col-2">Modificado por</div>
-      <div class="col-3">Modificação</div>
+    <div class="block d-flex align-items-center row">
+      <div class="col-1 text-center text-10px">ID</div>
+      <div class="col-2 text-10px text-center">Tutor</div>
+      <div class="col-1 text-10px text-center">Criado por</div>
+      <div class="col-1 text-10px text-center">Criação</div>
+      <div class="col-2 text-10px text-center">Modificado por</div>
+      <div class="col-1 text-10px text-center">Modificação</div>
+      <div class="col-2 text-10px text-center"></div>
     </div>
     <mdb-accordion>
       @for(tutor of tutores; track tutor.id){
@@ -17,21 +18,22 @@
             <div class="col-1">
               {{ tutor.id }}
             </div>
-            <div class="col-2">
+            <div class="col-2 text-10px text-center">
               {{ primeiraLetraMaiuscula(tutor.nome) }}
             </div>
-            <div class="col-2">
+            <div class="col-1 text-10px text-center">
               {{ primeiraLetraMaiuscula(tutor.criadoPor) }}
             </div>
-            <div class="col-2">
+            <div class="col-1 text-10px text-center">
               {{ dataFormatada(tutor.dataDaCriacao) }}
             </div>
-            <div class="col-2 text-center">
+            <div class="col-2 text-10px text-center">
               {{ primeiraLetraMaiuscula(tutor.atualizadoPor) }}
             </div>
-            <div class="col-3">
+            <div class="col-1 text-10px text-center">
               {{ dataFormatada(tutor.dataDeAtualizacao) }}
             </div>
+            <div class="col-2 text-10px text-center">{{tutor.desativadoPor}}</div>
           </div>
         </ng-template>
         <ng-template mdbAccordionItemBody>

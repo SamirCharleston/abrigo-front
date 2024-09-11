@@ -20,8 +20,8 @@ export class RequerimentoService {
     return this.http.get<Resposta<Requerimento>>(`${this.API}/buscar-id`, { params: { id } });
   }
 
-  listarRequerimentos(): Observable<Resposta<Requerimento[]>> {
-    return this.http.get<Resposta<Requerimento[]>>(this.API + "/listar");
+  listarRequerimentos(audit: boolean = false): Observable<Resposta<Requerimento[]>> {
+    return this.http.get<Resposta<Requerimento[]>>(this.API + "/listar?audit=" + audit);
   }
 
   registrar(requerimento: Requerimento): Observable<Resposta<void>> {

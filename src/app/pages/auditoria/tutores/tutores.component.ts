@@ -17,7 +17,7 @@ export class TutoresComponent {
   tutores: Tutor[] = [];
 
   constructor() {
-    this.tutorService.findAll().subscribe({
+    this.tutorService.findAll(true).subscribe({
       next: (response: Resposta<Tutor[]>) => {
         this.tutores = response.objeto;
       },

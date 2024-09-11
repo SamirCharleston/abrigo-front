@@ -17,7 +17,7 @@ export class RequerimentosComponent {
   requerimentos: Requerimento[] = [];
 
   constructor() {
-    this.requerimentoService.listarRequerimentos().subscribe({
+    this.requerimentoService.listarRequerimentos(true).subscribe({
       next: (response: Resposta<Requerimento[]>) => {
         this.requerimentos = response.objeto;
       },

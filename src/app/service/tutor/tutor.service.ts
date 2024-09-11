@@ -14,8 +14,8 @@ import { Tutor } from '../../models/tutor/tutor';
 
     constructor() { }
     
-    findAll(): Observable<Resposta<Tutor[]>> {
-      return this.http.get<Resposta<Tutor[]>>(this.API + "/listar");
+    findAll(audit: boolean = false): Observable<Resposta<Tutor[]>> {
+      return this.http.get<Resposta<Tutor[]>>(this.API + "/listar?audit=" + audit);
     }
     
     

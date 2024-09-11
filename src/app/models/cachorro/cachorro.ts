@@ -1,5 +1,7 @@
 export class Cachorro {
     id!: number;
+    status!: boolean;
+    desativadoPor!: string;
     criadoPor!: string;
     dataDaCriacao!: Date;
     atualizadoPor!: string;
